@@ -1,0 +1,80 @@
+.header {
+    display: grid;
+    grid-template-columns: 170px 1fr 130px;
+    align-items: center;
+    gap: 20px;
+    min-height: 82px;
+    padding: 12px 4%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee7e2;
+}
+
+.logoWeb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    color: #3f2b24;
+    font-size: 21px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.logoWeb img {
+    width: 38px;
+    height: 38px;
+}
+
+.menuHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menuHeader a {
+    color: #171412;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.menuHeader a:hover {
+    color: #8d4b2d;
+}
+
+.arrowMenu {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin: 0 0 3px 5px;
+}
+
+.iconsHeader {
+    display: flex;
+    justify-content: flex-end;
+    gap: 18px;
+}
+
+.iconsHeader button {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    place-items: center;
+    border: 0;
+    background: transparent;
+    color: #171412;
+    cursor: pointer;
+}
+
+.iconsHeader button:hover {
+    color: #8d4b2d;
+}
+
+.iconsHeader i {
+    font-size: 21px;
+    line-height: 1;
+}
