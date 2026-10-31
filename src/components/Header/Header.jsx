@@ -15,7 +15,7 @@ function Header() {
                 <a href="/#products">
                     Sản phẩm <span className="arrowMenu" aria-hidden="true"></span>
                 </a>
-                <a href="/#gifts">
+                <a href="/bo-suu-tap">
                     Sô cô la quà tặng <span className="arrowMenu" aria-hidden="true"></span>
                 </a>
                 <a href="/#valentine">Quà tặng Valentine</a>
