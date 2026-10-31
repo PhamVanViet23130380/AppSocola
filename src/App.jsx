@@ -1,13 +1,13 @@
 import './App.css'
 import {Route, Routes} from "react-router";
 import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home/home.jsx";
 
 
 function App() {
   return (
-      <>
-          <Header />
+      <><Header/>
       <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="*" element={
@@ -15,6 +15,7 @@ function App() {
                 <h2>404 - Không tìm thấy trang</h2>
               </div>}/>
       </Routes>
+      <Footer/>
       </>
   )
 }
