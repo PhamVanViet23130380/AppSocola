@@ -4,9 +4,9 @@ import "./Header.css"
 function Header() {
     return (
         <header className="header">
-            <a className="logoWeb" href="/" aria-label="AppSocola - Trang chủ">
+            <a className="logoWeb" href="/" aria-label="ChocoLuxe - Trang chủ">
                 <img src="/favicon.svg" alt="" />
-                <span>AppSocola</span>
+                <span>ChocoLuxe</span>
             </a>
 
             <nav className="menuHeader" aria-label="Menu chính">
