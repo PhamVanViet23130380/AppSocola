@@ -4,18 +4,18 @@ import "./Header.css"
 function Header() {
     return (
         <header className="header">
-            <a className="logoWeb" href="/" aria-label="AppSocola - Trang chủ">
+            <a className="logoWeb" href="/" aria-label="ChocoLuxe - Trang chủ">
                 <img src="/favicon.svg" alt="" />
-                <span>AppSocola</span>
+                <span>ChocoLuxe</span>
             </a>
 
             <nav className="menuHeader" aria-label="Menu chính">
                 <a href="/">Trang chủ</a>
-                <a href="/#about">Giới thiệu</a>
+                <a href="/gioi-thieu">Giới thiệu</a>
                 <a href="/#products">
                     Sản phẩm <span className="arrowMenu" aria-hidden="true"></span>
                 </a>
-                <a href="/#gifts">
+                <a href="/bo-suu-tap">
                     Sô cô la quà tặng <span className="arrowMenu" aria-hidden="true"></span>
                 </a>
                 <a href="/#valentine">Quà tặng Valentine</a>

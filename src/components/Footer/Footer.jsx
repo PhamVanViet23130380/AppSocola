@@ -5,7 +5,7 @@ function Footer() {
         <footer className="footer" id="contact">
             <div className="footerContent">
                 <div className="footerColumn footerBrand">
-                    <h2>APPSOCOLA</h2>
+                    <h2>CHOCOLUXE</h2>
                     <p><i className="fa-solid fa-location-dot"></i> Địa chỉ: Trường ĐH Nông Lâm tp.HCM</p>
                     <p><i className="fa-solid fa-envelope"></i> Email: appsocola@gmail.com</p>
                     <p><i className="fa-solid fa-phone"></i> Điện thoại: 0123 456 789</p>
@@ -40,11 +40,12 @@ function Footer() {
                     <a href="/#shippingPolicy">Chính sách giao hàng</a>
                     <a href="/#returnPolicy">Chính sách đổi trả</a>
                     <a href="/#faq">Câu hỏi thường gặp</a>
+                    <a href="/lien-he">Liên hệ</a>
                 </div>
             </div>
 
             <div className="footerBottom">
-                <p>© 2026 AppSocola - Socola Việt Nam</p>
+                <p>© 2026 ChocoLuxe - Socola Việt Nam</p>
                 <div className="footerSocials" aria-label="Mạng xã hội">
                     <span><i className="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
                     <span><i className="fa-brands fa-pinterest-p" aria-hidden="true"></i></span>
