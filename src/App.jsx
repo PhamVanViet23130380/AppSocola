@@ -1,23 +1,8 @@
-import './App.css'
-import {Route, Routes} from "react-router";
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
-import Home from "./pages/Home/home.jsx";
-
+import "./App.css";
+import AppRoutes from "./routes/AppRoutes.jsx";
 
 function App() {
-  return (
-      <><Header/>
-      <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="*" element={
-              <div className="app">
-                <h2>404 - Không tìm thấy trang</h2>
-              </div>}/>
-      </Routes>
-      <Footer/>
-      </>
-  )
+  return <AppRoutes />;
 }
 
-export default App
+export default App;

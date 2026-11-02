@@ -1,7 +1,7 @@
 function Home() {
     return (
         <div className="app">
-            <h1>AppSocola</h1>
+            <h1>ChocoLuxe</h1>
             <p>Website thương mại điện tử bán socola</p>
             <button>Khám phá sản phẩm</button>
         </div>

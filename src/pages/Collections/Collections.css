@@ -1,0 +1,632 @@
+.collections-page {
+  width: 100%;
+  background-color: #fbf9f5;
+  color: #36251e;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.collections-page * {
+  box-sizing: border-box;
+}
+
+.collections-page button,
+.collections-page a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.collections-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.collections-hero {
+  padding: 34px 0 36px;
+  background-color: #fbf9f5;
+}
+
+.collections-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 42px;
+  color: #8c7c72;
+  font-size: 12px;
+}
+
+.collections-breadcrumb a {
+  color: #6f5d53;
+  text-decoration: none;
+}
+
+.collections-breadcrumb a:hover {
+  color: #402a22;
+  text-decoration: underline;
+}
+
+.collections-breadcrumb span:last-child {
+  color: #402a22;
+  font-weight: 600;
+}
+
+.collections-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(260px, 1fr);
+  align-items: end;
+  gap: 72px;
+}
+
+.collections-eyebrow {
+  margin: 0 0 16px;
+  color: #ae754e;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.collections-hero h1 {
+  max-width: 750px;
+  margin: 0;
+  color: #2b1710;
+  font-size: clamp(31px, 3.5vw, 49px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.1px;
+}
+
+.collections-hero-aside p {
+  margin: 0 0 20px;
+  color: #6e6058;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.collections-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.collections-hero-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #38231d;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.collections-hero-actions a:hover {
+  color: #a16a45;
+}
+
+.collections-main {
+  padding: 10px 0 85px;
+}
+
+.collections-toolbar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.collections-toolbar h2 {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.collections-toolbar p {
+  margin: 0;
+  color: #85786f;
+  font-size: 12px;
+}
+
+.collections-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 19px 0 14px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e6ded7;
+}
+
+.collections-filter {
+  min-height: 38px;
+  padding: 8px 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: #f0ebe5;
+  color: #5a4a42;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.collections-filter:hover {
+  border-color: #b5a193;
+  background-color: #e7dbd1;
+}
+
+.collections-filter-active,
+.collections-filter-active:hover {
+  border-color: #38231d;
+  background-color: #38231d;
+  color: #ffffff;
+}
+
+.collections-filter:focus-visible,
+.collections-detail-button:focus-visible,
+.collections-page a:focus-visible {
+  outline: 3px solid #bc875a;
+  outline-offset: 3px;
+}
+
+.collections-results {
+  margin: 0 0 18px;
+  color: #8b7b70;
+  font-size: 12px;
+}
+
+.collections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.collections-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 410px;
+  overflow: hidden;
+  border: 1px solid #ebe2dc;
+  border-radius: 9px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 28px rgba(49, 34, 26, 0.05);
+}
+
+.collections-card-image {
+  position: relative;
+  min-width: 0;
+  min-height: 410px;
+  overflow: hidden;
+  background: linear-gradient(130deg, #8a6650, #d3b397);
+}
+
+.collections-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 410px;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.collections-card:hover .collections-card-image img {
+  transform: scale(1.025);
+}
+
+.collections-image-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: inline-block;
+  max-width: calc(100% - 36px);
+  padding: 8px 12px;
+  background-color: #322019;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.collections-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 35px 38px 32px;
+}
+
+.collections-card-index {
+  margin: 0 0 10px;
+  color: #a9866b;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+}
+
+.collections-card-category {
+  margin: 0 0 5px;
+  color: #a06c4d;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.collections-card-content h3 {
+  margin: 0 0 15px;
+  color: #2c1a14;
+  font-size: clamp(23px, 2.3vw, 30px);
+  font-weight: 700;
+  line-height: 1.24;
+}
+
+.collections-card-description {
+  margin: 0 0 17px;
+  color: #695c54;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.collections-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 24px;
+}
+
+.collections-tags span {
+  display: inline-block;
+  padding: 6px 9px;
+  border: 1px solid #e5dcd4;
+  border-radius: 3px;
+  background-color: #faf6f2;
+  color: #735c4e;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.collections-card-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  gap: 16px;
+  margin-top: auto;
+}
+
+.collections-price span,
+.collections-price strong {
+  display: block;
+}
+
+.collections-price span {
+  margin-bottom: 3px;
+  color: #97877c;
+  font-size: 11px;
+}
+
+.collections-price strong {
+  color: #38231d;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.collections-detail-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 43px;
+  padding: 10px 18px;
+  border: 1px solid #38231d;
+  border-radius: 4px;
+  background-color: #38231d;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.collections-detail-button:hover {
+  background-color: #694538;
+}
+
+.collections-detail-panel {
+  width: 100%;
+  margin-top: 20px;
+  padding: 17px 20px;
+  border: 1px solid #eaded4;
+  border-radius: 5px;
+  background-color: #fbf6f0;
+}
+
+.collections-detail-panel p {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.collections-detail-panel ul {
+  margin: 0 0 12px;
+  padding-left: 19px;
+  color: #635348;
+  font-size: 12px;
+}
+
+.collections-detail-panel li + li {
+  margin-top: 5px;
+}
+
+.collections-detail-panel a {
+  color: #623b2e;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.collections-card-reverse .collections-card-image {
+  order: 2;
+}
+
+.collections-card-reverse .collections-card-content {
+  order: 1;
+}
+
+.collections-price-note {
+  margin: 22px 0 0;
+  color: #857971;
+  font-size: 12px;
+  text-align: center;
+}
+
+.collections-benefits {
+  padding: 75px 0;
+  background-color: #f1efeb;
+}
+
+.collections-section-heading {
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.collections-section-heading h2 {
+  margin: 0 0 12px;
+  color: #38231d;
+  font-size: 31px;
+  line-height: 1.24;
+}
+
+.collections-section-heading > p:last-child {
+  max-width: 630px;
+  margin: 0 auto;
+  color: #73665d;
+  font-size: 14px;
+}
+
+.collections-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.collections-benefit-card {
+  padding: 27px 24px;
+  border: 1px solid #eae4dd;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.collections-benefit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 21px;
+  border-radius: 5px;
+  background-color: #f4ece4;
+  color: #80513a;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.collections-benefit-card h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.collections-benefit-card p {
+  margin: 0;
+  color: #73665e;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.collections-cta {
+  padding: 45px 0 74px;
+  background-color: #fbf9f5;
+}
+
+.collections-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 35px 40px;
+  border-radius: 7px;
+  background: linear-gradient(115deg, #25140f 0%, #44271e 100%);
+  color: #ffffff;
+}
+
+.collections-cta-inner p {
+  margin: 0 0 8px;
+  color: #dbbda5;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.collections-cta-inner h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+.collections-cta-inner span {
+  color: #f0e1d4;
+  font-size: 13px;
+}
+
+.collections-cta-inner > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 45px;
+  flex-shrink: 0;
+  padding: 12px 21px;
+  border-radius: 4px;
+  background-color: #f3e1ce;
+  color: #2d1a14;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.collections-cta-inner > a:hover {
+  background-color: #ffffff;
+}
+
+@media (max-width: 1100px) {
+  .collections-hero-grid {
+    gap: 38px;
+  }
+
+  .collections-card-content {
+    padding: 27px 26px;
+  }
+
+  .collections-card-content h3 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 820px) {
+  .collections-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .collections-hero {
+    padding-top: 28px;
+  }
+
+  .collections-breadcrumb {
+    margin-bottom: 28px;
+  }
+
+  .collections-card {
+    grid-template-columns: 1fr;
+  }
+
+  .collections-card-image,
+  .collections-card-image img {
+    min-height: 320px;
+    max-height: 410px;
+  }
+
+  .collections-card-reverse .collections-card-image,
+  .collections-card-reverse .collections-card-content {
+    order: initial;
+  }
+
+  .collections-benefit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .collections-container {
+    padding: 0 18px;
+  }
+
+  .collections-hero h1 {
+    font-size: 30px;
+  }
+
+  .collections-toolbar {
+    display: block;
+  }
+
+  .collections-toolbar p {
+    margin-top: 7px;
+  }
+
+  .collections-filters {
+    gap: 7px;
+  }
+
+  .collections-filter {
+    padding: 7px 11px;
+    font-size: 11px;
+  }
+
+  .collections-card-image,
+  .collections-card-image img {
+    min-height: 270px;
+    max-height: 340px;
+  }
+
+  .collections-card-content {
+    padding: 24px 20px;
+  }
+
+  .collections-card-content h3 {
+    font-size: 23px;
+  }
+
+  .collections-card-bottom {
+    flex-wrap: wrap;
+  }
+
+  .collections-benefits {
+    padding: 57px 0;
+  }
+
+  .collections-section-heading h2 {
+    font-size: 26px;
+  }
+
+  .collections-benefit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .collections-cta {
+    padding: 30px 0 55px;
+  }
+
+  .collections-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 22px;
+  }
+
+  .collections-cta-inner h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 380px) {
+  .collections-card-bottom {
+    align-items: stretch;
+  }
+
+  .collections-detail-button {
+    width: 100%;
+  }
+}
