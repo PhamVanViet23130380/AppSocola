@@ -1,7 +1,11 @@
 import "@fortawesome/fontawesome-free/css/all.min.css"
 import "./Header.css"
+import { useState } from "react"
 
 function Header() {
+    const [searchOpen, setSearchOpen] = useState(false)
+    const [searchText, setSearchText] = useState("")
+
     return (
         <header className="header">
             <a className="logoWeb" href="/" aria-label="ChocoLuxe - Trang chủ">
@@ -23,8 +27,13 @@ function Header() {
             </nav>
 
             <div className="iconsHeader">
-                <button type="button" aria-label="Tìm kiếm">
-                    <i className="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <button
+                    type="button"
+                    aria-label={searchOpen ? "Đóng tìm kiếm" : "Mở tìm kiếm"}
+                    aria-expanded={searchOpen}
+                    aria-controls="searchPanel"
+                    onClick={() => setSearchOpen(!searchOpen)}>
+                    <i className={searchOpen ? "fa-solid fa-xmark" : "fa-solid fa-magnifying-glass"} aria-hidden="true"></i>
                 </button>
                 <button type="button" aria-label="Tài khoản">
                     <i className="fa-solid fa-user" aria-hidden="true"></i>
@@ -33,6 +42,22 @@ function Header() {
                     <i className="fa-solid fa-cart-shopping" aria-hidden="true"></i>
                 </button>
             </div>
+
+            {searchOpen && (
+                <div className="searchPanel" id="searchPanel" role="search">
+                    <form className="searchForm" onSubmit={(event) => event.preventDefault()}>
+                        <i className="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        <input className="searchInput" type="text" value={searchText} onChange={(event) => setSearchText(event.target.value)} placeholder="Tìm socola, hộp quà..." aria-label="Nhập nội dung cần tìm"/>
+                        {searchText && (
+                            <button className="searchClose" type="button" onClick={() => setSearchText("")} aria-label="Xóa nội dung tìm kiếm">
+                                <i className="fa-solid fa-xmark" aria-hidden="true"></i>
+                            </button>
+                        )}
+                    </form>
+
+                    {searchText.trim() && (<p className="searchEmpty" aria-live="polite">Không tìm thấy sản phẩm</p>)}
+                </div>
+            )}
         </header>
     )
 }

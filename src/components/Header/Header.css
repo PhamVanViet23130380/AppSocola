@@ -7,6 +7,8 @@
     padding: 12px 4%;
     background-color: #ffffff;
     border-bottom: 1px solid #eee7e2;
+    position: relative;
+    z-index: 5;
 }
 
 .logoWeb {
@@ -77,4 +79,55 @@
 .iconsHeader i {
     font-size: 21px;
     line-height: 1;
+}
+
+.searchPanel {
+    position: absolute;
+    top: 100%;
+    right: 4%;
+    width: 460px;
+    padding: 16px;
+    background-color: #ffffff;
+    border: 1px solid #eee7e2;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.searchForm {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border: 1px solid #d8ccc4;
+}
+
+.searchForm > i {
+    color: #8d4b2d;
+}
+
+.searchInput {
+    flex: 1;
+    min-width: 0;
+    padding: 7px 0;
+    border: 0;
+    outline: 0;
+    color: #33251f;
+    font-size: 15px;
+}
+
+.searchClose {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #5b453a;
+    cursor: pointer;
+}
+
+.searchEmpty {
+    margin: 0;
+    padding: 18px 4px 8px;
+    color: #756960;
+    font-size: 14px;
+    text-align: center;
 }
