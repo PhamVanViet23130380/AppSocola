@@ -1,6 +1,7 @@
 import "@fortawesome/fontawesome-free/css/all.min.css"
 import "./Header.css"
 import { useState } from "react"
+import { Link } from "react-router"
 
 function Header() {
     const [searchOpen, setSearchOpen] = useState(false)
@@ -35,9 +36,9 @@ function Header() {
                     onClick={() => setSearchOpen(!searchOpen)}>
                     <i className={searchOpen ? "fa-solid fa-xmark" : "fa-solid fa-magnifying-glass"} aria-hidden="true"></i>
                 </button>
-                <button type="button" aria-label="Tài khoản">
+                <Link to="/profile" aria-label="Thông tin cá nhân">
                     <i className="fa-solid fa-user" aria-hidden="true"></i>
-                </button>
+                </Link>
                 <button type="button" aria-label="Giỏ hàng">
                     <i className="fa-solid fa-cart-shopping" aria-hidden="true"></i>
                 </button>
