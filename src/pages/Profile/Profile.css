@@ -1,0 +1,126 @@
+.profilePage {
+    padding: 40px 5%;
+    background-color: #fff8f0;
+}
+
+.profileLayout {
+    display: flex;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.profileMenu {
+    width: 240px;
+    margin-right: 24px;
+}
+
+.profileContent {
+    flex: 1;
+}
+
+.profileMenu{
+    padding: 24px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px #0000001A;
+}
+
+.profileContent {
+    padding: 24px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px #0000001A;
+}
+
+.profileMenu h2 {
+    margin: 0 0 18px;
+    color: #3f2b24;
+    font-size: 20px;
+}
+
+.profileMenuItem {
+    padding: 14px 12px;
+    border-radius: 5px;
+    background-color: #c9a17e;
+    color: #ffffff;
+}
+
+.profileMenuItem i {
+    margin-right: 10px;
+}
+
+.profileContent h1 {
+    margin: 0 0 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #6c4938;
+    color: #33251f;
+    font-size: 28px;
+}
+
+.profileAvatarRow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+    color: #4e4038;
+}
+
+.profileAvatar {
+    display: flex;
+    width: 64px;
+    height: 64px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #c9a17e;
+    color: #ffffff;
+    font-size: 26px;
+}
+
+.profileFields {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.profileField {
+    width: 48%;
+    margin-bottom: 18px;
+}
+
+.profileField span {
+    display: block;
+    margin-bottom: 8px;
+    color: #4e4038;
+}
+
+.profileField p {
+    margin: 0;
+    padding: 13px 14px;
+    border: 1px solid #ded8d3;
+    border-radius: 5px;
+    background-color: #fafafa;
+    color: #51463f;
+}
+
+.genderOptions {
+    display: flex;
+    align-items: center;
+}
+
+.genderOptions label {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    color: #51463f;
+    cursor: pointer;
+}
+
+.genderOptions input {
+    margin-right: 7px;
+}
+
+.profileEmail {
+    width: 100%;
+}
+
