@@ -202,7 +202,7 @@
 }
 
 .category-header h2{
-    font-family: Arial, sans-serif;
+    font-family: Georgia, serif;
     font-size: 38px;
     color: #3d241c;
 }
@@ -331,9 +331,28 @@
 }
 
 
+.home-new-products{
+    padding: 70px 10%;
+    background-color: #ffffff;
+}
 
+.new-products-header{
+    text-align: center;
+    margin-bottom: 40px;
+}
 
+.new-products-header h2{
+    margin: 10px 0;
+    color: #3d241c;
+    font-family: Georgia, serif;
+    font-size: 42px;
+}
 
+.new-products-header p{
+    margin: 10px 0;
+    color: #756258;
+    font-size: 16px;
+}
 
 
 

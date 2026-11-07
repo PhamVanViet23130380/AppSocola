@@ -5,6 +5,9 @@ import ProductCarousel from "../../components/ProductCarousel/ProductCarousel.js
 
 const flashSaleProducts = products.slice(0, 5);
 
+const newProducts = products.slice(5, 10);
+
+
 const categories = [
     {
         id: "dark",
@@ -136,10 +139,27 @@ function Home() {
                 </div>
 
                 <div className="flashsale-products">
-                    <ProductCarousel products={flashSaleProducts} />
+                    <ProductCarousel products={flashSaleProducts}  variant="sale"/>
                 </div>
 
             </section>
+
+
+
+
+            <section className="home-new-products">
+                <div className="new-products-header">
+                    <p>KHÁM PHÁ HƯƠNG VỊ MỚI</p>
+                    <h2>Sản phẩm mới</h2>
+                    <p>Những hương vị mới, mang đến trải nghiệm ngọt ngào đầy cảm hứng.</p>
+                </div>
+
+                <ProductCarousel
+                    products={newProducts}
+                    variant="new"
+                />
+            </section>
+
 
         </main>
     )

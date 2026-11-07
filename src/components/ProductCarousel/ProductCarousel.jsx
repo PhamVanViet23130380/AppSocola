@@ -1,7 +1,7 @@
 import "./ProductCarousel.css";
 import { useState } from "react";
 
-function ProductCarousel({ products }){
+function ProductCarousel({ products, variant = "default" }) {
     const [startIndex, setStartIndex] = useState(0);
 
     const visibleCount = 4;
@@ -14,12 +14,18 @@ function ProductCarousel({ products }){
 
 
     return (
-        <div className="product-carousel">
+        <div className={`product-carousel product-carousel--${variant}`}>
             <div className="product-carousel-grid">
                 {visibleProducts.map((product) => (
                     <article className="flashsale-card" key={product.id}>
                         <div className="flashsale-card-image">
-                            <span className="flashsale-discount">-20%</span>
+                            {variant === "sale" && (
+                                <span className="flashsale-discount">-20%</span>
+                            )}
+
+                            {variant === "new" && (
+                                <span className="product-new-badge">NEW</span>
+                            )}
 
                             <img
                                 src={product.image}
@@ -31,13 +37,22 @@ function ProductCarousel({ products }){
                             <h3>{product.name}</h3>
 
                             <div className="flashsale-price">
-                                <strong>
-                                    {(product.price * 0.8).toLocaleString("vi-VN")}đ
-                                </strong>
+                                {variant === "sale" && (
+                                    <>
+                                        <strong>
+                                            {(product.price * 0.8).toLocaleString("vi-VN")}đ
+                                        </strong>
+                                        <del>
+                                            {product.price.toLocaleString("vi-VN")}đ
+                                        </del>
+                                    </>
+                                )}
 
-                                <del>
-                                    {product.price.toLocaleString("vi-VN")}đ
-                                </del>
+                                {variant !== "sale" && (
+                                    <strong>
+                                        {product.price.toLocaleString("vi-VN")}đ
+                                    </strong>
+                                )}
                             </div>
 
                             <button type="button" className="flashsale-add-btn">
