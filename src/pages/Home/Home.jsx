@@ -1,6 +1,31 @@
 import {Link} from "react-router";
 import "./Home.css";
 
+
+const categories = [
+    {
+        id: "dark",
+        name: "Socola đen",
+        image: "/images/products/socola-den-70.svg"
+    },
+    {
+        id: "milk",
+        name: "Socola sữa",
+        image: "/images/products/socola-sua-truyen-thong.svg"
+    },
+    {
+        id: "nuts",
+        name: "Socola hạt",
+        image: "/images/products/socola-hanh-nhan.svg"
+    },
+    {
+        id: "gift",
+        name: "Hộp quà socola",
+        image: "/images/products/hop-qua-12-vien.svg"
+    }
+];
+
+
 function Home() {
     return (
         <main className="home-page">
@@ -57,6 +82,38 @@ function Home() {
                     </span>
                 </div>
 
+            </section>
+
+
+
+            <section className="home-category">
+                <div className="category-header">
+                    <p>KHÁM PHÁ CHOCOLUXE</p>
+                    <h2>Danh mục sản phẩm</h2>
+                    <p>Chọn hương vị socola dành riêng cho bạn</p>
+                </div>
+
+                <div className="category-grid">
+                    {categories.map((category) => (
+                        <article className="category-card" key={category.id}>
+                            <div className="category-image">
+                                <img
+                                    src={category.image}
+                                    alt={category.name}
+                                />
+                            </div>
+
+                            <h3>{category.name}</h3>
+                            <span>Khám phá danh mục</span>
+                        </article>
+                    ))}
+                </div>
+
+                <div className="category-all">
+                    <a href="#" className="category-all-button">
+                        Xem tất cả sản phẩm
+                    </a>
+                </div>
             </section>
 
         </main>

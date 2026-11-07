@@ -1,5 +1,5 @@
 .home-page{
-    background-color: #fff8f0;;
+    background-color: #fff8f0;
 }
 
 .home-banner{
@@ -186,8 +186,106 @@
 }
 
 .banner-decor-two{
+    left: 99%;
     bottom: 5%;
-    left: 100%;
+    font-size: 25px;
+}
+
+.home-category{
+    padding: 80px 10%;
+    background: #ffffff;
+}
+
+.category-header{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.category-header h2{
+    font-family: Arial, sans-serif;
+    font-size: 38px;
+    color: #3d241c;
+}
+
+.category-grid{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.category-card{
+    padding: 20px 20px 30px 20px;
+    background-color: #fff8f0;
+    border: 1px solid #eadccf;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.category-image{
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.category-image img{
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.category-card h3{
+    font-family: Georgia, serif;
+    margin: 20px 0 20px;
+    color: #3d241c;
+    font-size: 22px;
+}
+
+.category-card span {
+    color: #a76542;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(70, 40, 25, 0.12);
+}
+
+.category-all{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.category-all-button{
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #603e2f;
+    color: white;
+    border: 1px solid #603e2f;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.category-all-button:hover{
+    transform: translateY(-5px);
+    background-color: #40271f;
+}
+
+
+@media (max-width: 1024px){
+    .home-category{
+        padding: 60px 6%;
+    }
+
+    .category-grid{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 768px){
@@ -245,5 +343,22 @@
 
     .banner-badge strong{
         font-size: 12px;
+    }
+
+    .home-category{
+        padding: 50px 5%;
+    }
+
+    .category-header{
+        font-size: 30px;
+    }
+
+    .category-grid{
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .category-image img{
+        height: 220px;
     }
 }
