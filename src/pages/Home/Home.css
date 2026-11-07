@@ -231,7 +231,7 @@
 .category-image img{
     display: block;
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: contain;
 }
 
@@ -276,6 +276,65 @@
     transform: translateY(-5px);
     background-color: #40271f;
 }
+
+.home-flashsale{
+    padding: 20px 10%;
+    background-color: #603e2f;
+    color: #ffffff;
+}
+
+.flashsale-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.flashsale-heading h2{
+    margin: 10px 0;
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-size: 42px;
+}
+
+.flashsale-heading p{
+    margin: 10px 0;
+    font-size: 16px;
+    color: #f0d9c7;
+}
+
+.flashsale-time{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 15px;
+    border: 1px solid #cdaa95;
+    border-radius: 6px;
+}
+
+.flashsale-time span{
+    color: #f0d9c7;
+    font-size: 14px;
+}
+
+.flashsale-time strong{
+    color: #ffffff;
+    font-size: 18px;
+    letter-spacing: 3px;
+    font-variant-numeric: tabular-nums;
+}
+
+.flashsale-products{
+    width: 100%;
+}
+
+
+
+
+
+
 
 
 @media (max-width: 1024px){

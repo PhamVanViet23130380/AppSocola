@@ -1,6 +1,9 @@
 import {Link} from "react-router";
 import "./Home.css";
+import { products } from "../../data/products.js";
+import ProductCarousel from "../../components/ProductCarousel/ProductCarousel.jsx";
 
+const flashSaleProducts = products.slice(0, 5);
 
 const categories = [
     {
@@ -114,6 +117,28 @@ function Home() {
                         Xem tất cả sản phẩm
                     </a>
                 </div>
+            </section>
+
+
+
+            <section className="home-flashsale">
+                <div className="flashsale-header">
+                    <div className="flashsale-heading">
+                        <p>Ưu đãi giới hạn</p>
+                        <h2>Flash Sale</h2>
+                        <p>Ngọt ngào trong từng hương vị, nhẹ nhàng trong từng mức giá.</p>
+                    </div>
+
+                    <div className="flashsale-time">
+                        <span>Kêt thúc sau</span>
+                        <strong>02 : 15 : 30</strong>
+                    </div>
+                </div>
+
+                <div className="flashsale-products">
+                    <ProductCarousel products={flashSaleProducts} />
+                </div>
+
             </section>
 
         </main>
