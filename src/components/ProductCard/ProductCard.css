@@ -1,16 +1,34 @@
-/* FE-013: Card don gian, phu hop giao dien desktop ChocoLuxe. */
+/* ProductCard dùng cùng phong cách với .category-card ở trang chủ. */
 .product-card {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
   min-width: 0;
+  padding: 20px 20px 30px;
   overflow: hidden;
-  background: #fff;
-  border: 1px solid #e6dcd4;
-  font-family: Arial, sans-serif;
+  background-color: #fff8f0;
+  border: 1px solid #eadccf;
+  border-radius: 8px;
+  color: #3d241c;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Cùng hiệu ứng hover với card danh mục trang chủ. */
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(70, 40, 25, 0.12);
 }
 
 .product-card-image {
+  position: relative;
+  display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
-  background: #f3e9df;
+  overflow: hidden;
+  background-color: transparent;
+  border-radius: 5px;
 }
 
 .product-card-image img {
@@ -21,21 +39,100 @@
 }
 
 .product-card-info {
-  padding: 12px 14px 16px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 16px 0 0;
 }
 
 .product-card-name {
-  margin: 0 0 8px;
-  color: #372920;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.4;
+  min-height: 58px;
+  margin: 0 0 12px;
+  color: #3d241c;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.product-card-name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.product-card-name a:hover {
+  text-decoration: underline;
 }
 
 .product-card-price {
-  margin: 0;
-  color: #78432c;
-  font-size: 15px;
+  margin: auto 0 16px;
+  color: #91443a;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
   font-weight: 700;
+  line-height: 1.3;
+}
+
+/* Giữ nguyên các nút hiện có, chỉ đồng bộ màu với trang chủ. */
+.product-card-detail-button,
+.product-card-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
   line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.product-card-detail-button {
+  margin-bottom: 10px;
+  border: 1px solid #603e2f;
+  background-color: transparent;
+  color: #603e2f;
+}
+
+.product-card-detail-button:hover {
+  background-color: #efe2d5;
+}
+
+.product-card-button {
+  border: 1px solid #603e2f;
+  background-color: #603e2f;
+  color: #fff;
+}
+
+.product-card-button:hover {
+  background-color: #40271f;
+}
+
+.product-card-detail-button:focus-visible,
+.product-card-button:focus-visible {
+  outline: 2px solid #a76542;
+  outline-offset: 2px;
+}
+
+/* Giữ các class dành cho nhãn và thông báo giỏ hàng nếu có. */
+.product-card-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 9px;
+  border-radius: 4px;
+  background: #684532;
+  color: #fff;
+  font: bold 12px Arial, sans-serif;
+}
+
+.product-card-feedback {
+  min-height: 16px;
+  margin: 6px 0 0;
+  color: #476d43;
+  font: 11px/16px Arial, sans-serif;
 }
