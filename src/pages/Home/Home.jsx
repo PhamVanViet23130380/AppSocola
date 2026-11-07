@@ -8,6 +8,14 @@ const flashSaleProducts = products.slice(0, 5);
 const newProducts = products.slice(5, 10);
 
 
+const bestSellerIds = [4, 1, 7, 10, 12];
+
+const bestSellerProducts = bestSellerIds
+    .map((id) => products.find((product) => product.id === id))
+    .filter(Boolean);
+
+
+
 const categories = [
     {
         id: "dark",
@@ -160,6 +168,20 @@ function Home() {
                 />
             </section>
 
+
+
+            <section className="home-bestseller">
+                <div className="bestseller-header">
+                    <p>HƯƠNG VỊ ĐƯỢC YÊU THÍCH</p>
+                    <h2>Sản phẩm bán chạy</h2>
+                    <p>Những hương vị được yêu thích và lựa chọn nhiều nhất tại ChocoLuxe.</p>
+                </div>
+
+                <ProductCarousel
+                    products={bestSellerProducts}
+                    variant="hot"
+                />
+            </section>
 
         </main>
     )

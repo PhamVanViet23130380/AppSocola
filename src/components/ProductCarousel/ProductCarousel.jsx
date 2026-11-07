@@ -27,6 +27,10 @@ function ProductCarousel({ products, variant = "default" }) {
                                 <span className="product-new-badge">NEW</span>
                             )}
 
+                            {variant === "hot" && (
+                                <span className="product-hot-badge">HOT</span>
+                            )}
+
                             <img
                                 src={product.image}
                                 alt={product.name}

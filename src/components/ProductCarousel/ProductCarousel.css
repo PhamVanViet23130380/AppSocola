@@ -61,6 +61,21 @@
     font-weight: bold;
 }
 
+
+.product-hot-badge{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    padding: 5px 10px;
+    background-color: #c46b36;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
 .flashsale-card-info{
     display: flex;
     flex-direction: column;
@@ -148,4 +163,16 @@
     background-color: #603e2f;
     color: white;
 }
+
+
+.product-carousel--hot .product-carousel-controls button {
+    color: #603e2f;
+    border-color: #603e2f;
+}
+
+.product-carousel--hot .product-carousel-controls button:hover:not(:disabled) {
+    background-color: #603e2f;
+    color: white;
+}
+
 

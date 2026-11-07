@@ -192,7 +192,7 @@
 }
 
 .home-category{
-    padding: 80px 10%;
+    padding: 70px 10%;
     background: #ffffff;
 }
 
@@ -203,8 +203,9 @@
 
 .category-header h2{
     font-family: Georgia, serif;
-    font-size: 38px;
+    font-size: 42px;
     color: #3d241c;
+    margin: 10px 0;
 }
 
 .category-grid{
@@ -353,6 +354,32 @@
     color: #756258;
     font-size: 16px;
 }
+
+
+
+.home-bestseller{
+    padding: 70px 10%;
+    background-color: #f1e3d8;
+}
+
+.bestseller-header{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.bestseller-header h2{
+    margin: 10px 0;
+    color: #3d241c;
+    font-family: Georgia, serif;
+    font-size: 42px;
+}
+
+.bestseller-header p{
+    margin: 10px 0;
+    color: #756258;
+    font-size: 16px;
+}
+
 
 
 
