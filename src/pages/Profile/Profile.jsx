@@ -1,6 +1,19 @@
 import "./Profile.css"
+import { useState } from "react"
 
 function Profile() {
+    const [isEditing, setIsEditing] = useState(false)
+    const [profile, setProfile] = useState({
+        name: "Nguyễn Văn A",
+        phone: "0123456789",
+        email: "nguyenvana@example.com",
+        gender: "",
+    })
+
+    function handleChange(event) {
+        setProfile({ ...profile, [event.target.name]: event.target.value })
+    }
+
     return (
         <main className="profilePage">
             <div className="profileLayout">
@@ -25,29 +38,35 @@ function Profile() {
                     <div className="profileFields">
                         <div className="profileField">
                             <span>Họ và tên</span>
-                            <p>Nguyễn Văn A</p>
+                            {isEditing ? (<input className="profileInput" type="text" name="name" value={profile.name} onChange={handleChange} />) : (<p>{profile.name}</p>)}
                         </div>
                         <div className="profileField">
                             <span>Số điện thoại</span>
-                            <p>0123456789</p>
+                            {isEditing ? (<input className="profileInput" type="text" name="phone" value={profile.phone} onChange={handleChange} />) : (<p>{profile.phone}</p>)}
                         </div>
                         <div className="profileField profileEmail">
                             <span>Email</span>
-                            <p>nguyenvana@example.com</p>
+                            {isEditing ? (<input className="profileInput" type="email" name="email" value={profile.email} onChange={handleChange} />) : (<p>{profile.email}</p>)}
                         </div>
                         <div className="profileField">
                             <span>Giới tính</span>
                             <div className="genderOptions">
                                 <label>
-                                    <input type="radio" name="gender" value="nam" />
+                                    <input type="radio" name="gender" value="nam" checked={profile.gender === "nam"} onChange={handleChange} disabled={!isEditing} />
                                     Nam
                                 </label>
                                 <label>
-                                    <input type="radio" name="gender" value="nu" />
+                                    <input type="radio" name="gender" value="nu" checked={profile.gender === "nu"} onChange={handleChange} disabled={!isEditing} />
                                     Nữ
                                 </label>
                             </div>
                         </div>
+                    </div>
+
+                    <div className="profileActions">
+                        <button type="button" className="profileEditButton" onClick={() => setIsEditing(!isEditing)}>
+                            {isEditing ? "Lưu" : "Sửa"}
+                        </button>
                     </div>
                 </section>
             </div>

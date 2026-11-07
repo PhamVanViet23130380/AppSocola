@@ -60,7 +60,7 @@
     gap: 18px;
 }
 
-.iconsHeader button {
+.iconsHeader button{
     display: grid;
     width: 30px;
     height: 30px;
@@ -70,9 +70,27 @@
     background: transparent;
     color: #171412;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.iconsHeader button:hover {
+.iconsHeader a {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    place-items: center;
+    border: 0;
+    background: transparent;
+    color: #171412;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.iconsHeader button:hover{
+    color: #8d4b2d;
+}
+
+.iconsHeader a:hover {
     color: #8d4b2d;
 }
 

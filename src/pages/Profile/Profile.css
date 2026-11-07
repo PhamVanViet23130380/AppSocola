@@ -103,6 +103,17 @@
     color: #51463f;
 }
 
+.profileInput {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #ded8d3;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #51463f;
+    font-size: 15px;
+}
+
 .genderOptions {
     display: flex;
     align-items: center;
@@ -122,5 +133,25 @@
 
 .profileEmail {
     width: 100%;
+}
+
+.profileActions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+}
+
+.profileEditButton {
+    padding: 12px 34px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #ff6969;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.profileEditButton:hover {
+    background-color: #e95b5b;
 }
 
