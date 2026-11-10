@@ -38,15 +38,28 @@
     font-size: 20px;
 }
 
-.profileMenuItem {
+.profileMenuLink {
+    display: flex;
+    align-items: center;
     padding: 14px 12px;
     border-radius: 5px;
+    color: #4e4038;
+    text-decoration: none;
+}
+
+.profileMenuLink:hover {
+    background-color: #fff8f0;
+}
+
+.profileMenuLink.profileMenuActive {
     background-color: #c9a17e;
     color: #ffffff;
 }
 
-.profileMenuItem i {
+.profileMenuLink i {
+    width: 18px;
     margin-right: 10px;
+    text-align: center;
 }
 
 .profileContent h1 {

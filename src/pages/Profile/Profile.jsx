@@ -1,5 +1,6 @@
 import "./Profile.css"
 import { useState } from "react"
+import { Link } from "react-router"
 
 function Profile() {
     const [isEditing, setIsEditing] = useState(false)
@@ -19,10 +20,14 @@ function Profile() {
             <div className="profileLayout">
                 <aside className="profileMenu">
                     <h2>Tài khoản</h2>
-                    <div className="profileMenuItem">
+                    <Link to="/profile" className="profileMenuLink profileMenuActive">
                         <i className="fa-solid fa-user" aria-hidden="true"></i>
                         <span>Thông tin cá nhân</span>
-                    </div>
+                    </Link>
+                    <Link to="/profile/address" className="profileMenuLink">
+                        <i className="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        <span>Địa chỉ của tôi</span>
+                    </Link>
                 </aside>
 
                 <section className="profileContent">

@@ -1,0 +1,118 @@
+.addressHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #6c4938;
+}
+
+.addressHeader h1 {
+    flex: 1;
+    margin: 0;
+    padding-bottom: 14px;
+    border: 0;
+}
+
+.addressAddButton {
+    padding: 11px 16px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #c9a17e;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.addressAddButton i {
+    margin-right: 8px;
+}
+
+.addressAddButton:hover {
+    background-color: #8d4b2d;
+}
+
+.addressButtons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 9px;
+}
+
+.addressCard {
+    margin-bottom: 14px;
+    padding: 18px 20px;
+    border: 1px solid #ded8d3;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #51463f;
+}
+
+.addressCardDefault {
+    border: 2px solid #c9a17e;
+    background-color: #fff8f0;
+}
+
+.addressCardTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+    color: #33251f;
+}
+
+.addressDefaultBadge {
+    padding: 5px 10px;
+    border-radius: 16px;
+    background-color: #c9a17e;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.addressCard p {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 7px 0;
+    line-height: 1.5;
+}
+
+.addressCard p i {
+    width: 16px;
+    margin-top: 3px;
+    color: #c9a17e;
+}
+
+.addressButtons {
+    margin-top: 14px;
+}
+
+.addressButtons button {
+    padding: 9px 13px;
+    border: 0;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.addressButtons button i {
+    margin-right: 7px;
+}
+
+.addressEditButton {
+    background-color: #4caf50;
+}
+
+.addressEditButton:hover {
+    background-color: #388e3c;
+}
+
+.addressDeleteButton {
+    background-color: #a94b42;
+}
+
+.addressDeleteButton:hover {
+    background-color: #843b34;
+}
