@@ -37,6 +37,7 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 9px;
+    margin-top: 14px;
 }
 
 .addressCard {
@@ -84,10 +85,6 @@
     color: #c9a17e;
 }
 
-.addressButtons {
-    margin-top: 14px;
-}
-
 .addressButtons button {
     padding: 9px 13px;
     border: 0;
@@ -99,6 +96,16 @@
 
 .addressButtons button i {
     margin-right: 7px;
+}
+
+.addressButtons .addressDefaultButton {
+    border: 1px solid #c9a17e;
+    background-color: #ffffff;
+    color: #8d4b2d;
+}
+
+.addressButtons .addressDefaultButton:hover {
+    background-color: #fff8f0;
 }
 
 .addressEditButton {
@@ -115,4 +122,125 @@
 
 .addressDeleteButton:hover {
     background-color: #843b34;
+}
+
+.addressFormPanel {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    width: 600px;
+    max-width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #ffffff;
+    box-shadow: -4px 0 14px #c7c7c7;
+}
+
+.addressFormHeader {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 2px solid #6c4938;
+    background-color: #ffffff;
+}
+
+.addressFormHeader h2 {
+    margin: 0;
+    color: #33251f;
+    font-size: 20px;
+}
+
+.addressFormHeader button {
+    width: 36px;
+    height: 36px;
+    border: 0;
+    background-color: #ffffff;
+    color: #94877d;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.addressFormContent {
+    padding: 20px;
+}
+
+.addressFormField {
+    display: block;
+    margin-bottom: 20px;
+    color: #33251f;
+    font-size: 15px;
+}
+
+.addressFormField span {
+    color: #a94b42;
+}
+
+.addressFormField input,
+.addressFormField select,
+.addressFormField textarea {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 46px;
+    margin-top: 8px;
+    padding: 10px 12px;
+    border: 1px solid #ded8d3;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #33251f;
+    font: inherit;
+}
+
+.addressFormField textarea {
+    height: 84px;
+    resize: vertical;
+}
+
+.addressDefaultCheck {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.addressDefaultCheck input {
+    width: 15px;
+    height: 15px;
+}
+
+.addressFormFooter {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 14px;
+    padding: 14px 20px;
+    border-top: 1px solid #ded8d3;
+    background-color: #ffffff;
+}
+
+.addressCancelButton,
+.addressSaveButton {
+    padding: 11px 20px;
+    border: 1px solid #ded8d3;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #51463f;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.addressSaveButton {
+    border-color: #c9a17e;
+    background-color: #c9a17e;
+    color: #ffffff;
+}
+
+.addressSaveButton:hover {
+    background-color: #8d4b2d;
 }
