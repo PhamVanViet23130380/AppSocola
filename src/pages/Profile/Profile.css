@@ -62,6 +62,16 @@
     text-align: center;
 }
 
+.profileLogout {
+    box-sizing: border-box;
+    width: 100%;
+    border: 0;
+    background-color: #fafafa;
+    font: inherit;
+    text-align: left;
+    cursor: default;
+}
+
 .profileContent h1 {
     margin: 0 0 24px;
     padding-bottom: 14px;

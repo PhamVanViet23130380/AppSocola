@@ -28,6 +28,10 @@ function Profile() {
                         <i className="fa-solid fa-location-dot" aria-hidden="true"></i>
                         <span>Địa chỉ của tôi</span>
                     </Link>
+                    <button className="profileMenuLink profileLogout" type="button">
+                        <i className="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                        <span>Đăng xuất</span>
+                    </button>
                 </aside>
 
                 <section className="profileContent">
