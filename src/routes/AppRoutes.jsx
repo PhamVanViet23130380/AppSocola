@@ -6,6 +6,7 @@ import About from "../pages/About/About.jsx";
 import Contact from "../pages/Contact/Contact.jsx";
 import Collections from "../pages/Collections/Collections.jsx";
 import Profile from "../pages/Profile/Profile.jsx";
+import Address from "../pages/Profile/Address.jsx";
 
 function AppRoutes() {
     return (
@@ -16,6 +17,7 @@ function AppRoutes() {
                 <Route path="/lien-he" element={<Contact />} />
                 <Route path="/bo-suu-tap" element={<Collections />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/profile/address" element={<Address/>}/>
 
                 <Route
                     path="*"

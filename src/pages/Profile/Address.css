@@ -1,0 +1,246 @@
+.addressHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #6c4938;
+}
+
+.addressHeader h1 {
+    flex: 1;
+    margin: 0;
+    padding-bottom: 14px;
+    border: 0;
+}
+
+.addressAddButton {
+    padding: 11px 16px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #c9a17e;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.addressAddButton i {
+    margin-right: 8px;
+}
+
+.addressAddButton:hover {
+    background-color: #8d4b2d;
+}
+
+.addressButtons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 9px;
+    margin-top: 14px;
+}
+
+.addressCard {
+    margin-bottom: 14px;
+    padding: 18px 20px;
+    border: 1px solid #ded8d3;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #51463f;
+}
+
+.addressCardDefault {
+    border: 2px solid #c9a17e;
+    background-color: #fff8f0;
+}
+
+.addressCardTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+    color: #33251f;
+}
+
+.addressDefaultBadge {
+    padding: 5px 10px;
+    border-radius: 16px;
+    background-color: #c9a17e;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.addressCard p {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 7px 0;
+    line-height: 1.5;
+}
+
+.addressCard p i {
+    width: 16px;
+    margin-top: 3px;
+    color: #c9a17e;
+}
+
+.addressButtons button {
+    padding: 9px 13px;
+    border: 0;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.addressButtons button i {
+    margin-right: 7px;
+}
+
+.addressButtons .addressDefaultButton {
+    border: 1px solid #c9a17e;
+    background-color: #ffffff;
+    color: #8d4b2d;
+}
+
+.addressButtons .addressDefaultButton:hover {
+    background-color: #fff8f0;
+}
+
+.addressEditButton {
+    background-color: #4caf50;
+}
+
+.addressEditButton:hover {
+    background-color: #388e3c;
+}
+
+.addressDeleteButton {
+    background-color: #a94b42;
+}
+
+.addressDeleteButton:hover {
+    background-color: #843b34;
+}
+
+.addressFormPanel {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    width: 600px;
+    max-width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #ffffff;
+    box-shadow: -4px 0 14px #c7c7c7;
+}
+
+.addressFormHeader {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 2px solid #6c4938;
+    background-color: #ffffff;
+}
+
+.addressFormHeader h2 {
+    margin: 0;
+    color: #33251f;
+    font-size: 20px;
+}
+
+.addressFormHeader button {
+    width: 36px;
+    height: 36px;
+    border: 0;
+    background-color: #ffffff;
+    color: #94877d;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.addressFormContent {
+    padding: 20px;
+}
+
+.addressFormField {
+    display: block;
+    margin-bottom: 20px;
+    color: #33251f;
+    font-size: 15px;
+}
+
+.addressFormField span {
+    color: #a94b42;
+}
+
+.addressFormField input,
+.addressFormField select,
+.addressFormField textarea {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 46px;
+    margin-top: 8px;
+    padding: 10px 12px;
+    border: 1px solid #ded8d3;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #33251f;
+    font: inherit;
+}
+
+.addressFormField textarea {
+    height: 84px;
+    resize: vertical;
+}
+
+.addressDefaultCheck {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.addressDefaultCheck input {
+    width: 15px;
+    height: 15px;
+}
+
+.addressFormFooter {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 14px;
+    padding: 14px 20px;
+    border-top: 1px solid #ded8d3;
+    background-color: #ffffff;
+}
+
+.addressCancelButton,
+.addressSaveButton {
+    padding: 11px 20px;
+    border: 1px solid #ded8d3;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #51463f;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.addressSaveButton {
+    border-color: #c9a17e;
+    background-color: #c9a17e;
+    color: #ffffff;
+}
+
+.addressSaveButton:hover {
+    background-color: #8d4b2d;
+}
