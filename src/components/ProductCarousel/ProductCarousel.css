@@ -175,4 +175,18 @@
     color: white;
 }
 
+.product-carousel-detail-link{
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.product-carousel-detail-link:hover{
+    color: #a23b2a;
+}
+
+.product-carousel-detail-link:focus-visible{
+    outline: 2px solid #96724e;
+    outline-offset: 4px;
+}
 

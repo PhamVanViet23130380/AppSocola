@@ -1,5 +1,6 @@
 import "./ProductCarousel.css";
 import { useState } from "react";
+import {Link} from "react-router";
 
 function ProductCarousel({ products, variant = "default" }) {
     const [startIndex, setStartIndex] = useState(0);
@@ -31,14 +32,20 @@ function ProductCarousel({ products, variant = "default" }) {
                                 <span className="product-hot-badge">HOT</span>
                             )}
 
-                            <img
-                                src={product.image}
-                                alt={product.name}
-                            />
+                            <Link to={`/san-pham/${product.slug}`} className="product-carousel-detail-link">
+                                <img
+                                    src={product.image}
+                                    alt={product.name}
+                                />
+                            </Link>
                         </div>
 
                         <div className="flashsale-card-info">
-                            <h3>{product.name}</h3>
+                            <h3>
+                                <Link to={`/san-pham/${product.slug}`} className="product-carousel-detail-link">
+                                    {product.name}
+                                </Link>
+                            </h3>
 
                             <div className="flashsale-price">
                                 {variant === "sale" && (
