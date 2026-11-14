@@ -104,3 +104,8 @@
 @media (max-width: 760px) {
   .products-toolbar { grid-template-columns: 1fr; padding: 18px; gap: 16px; }
 }
+
+/* FE-016: Có thêm lựa chọn sắp xếp trên cùng hàng bộ lọc. */
+@media (min-width: 761px) {
+  .products-toolbar { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
