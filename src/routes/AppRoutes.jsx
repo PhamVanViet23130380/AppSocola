@@ -7,6 +7,7 @@ import Contact from "../pages/Contact/Contact.jsx";
 import Collections from "../pages/Collections/Collections.jsx";
 import Profile from "../pages/Profile/Profile.jsx";
 import Address from "../pages/Profile/Address.jsx";
+import ProductDetail from "../pages/ProductDetail/ProductDetail.jsx";
 
 function AppRoutes() {
     return (
@@ -18,6 +19,7 @@ function AppRoutes() {
                 <Route path="/bo-suu-tap" element={<Collections />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/profile/address" element={<Address/>}/>
+                <Route path="/san-pham/:slug" element={<ProductDetail />}/>
 
                 <Route
                     path="*"

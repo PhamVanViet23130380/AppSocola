@@ -1,0 +1,21 @@
+.product-detail{
+    max-width: 1200px;
+    min-height: 400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    color: #4b2e23;
+    text-align: center;
+}
+
+.product-detail h1{
+    margin: 0 0 16px;
+    font-size: 32px;
+}
+
+.product-detail p{
+    line-height: 1.6;
+}
+
+.product-detail a{
+    color: #4b2e23;
+}
