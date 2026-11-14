@@ -89,7 +89,7 @@ function Products() {
           <p className="products-count">
             {sortedProducts.length === 0
               ? "Không có sản phẩm phù hợp"
-              : `Hiển thị ${firstIndex + 1}–${firstIndex + visibleProducts.length} / ${sortedProducts.length} sản phẩm`}
+              : `Hiển thị ${firstIndex + visibleProducts.length} / ${sortedProducts.length} sản phẩm`}
           </p>
           </div>
           {visibleProducts.length > 0 ? (

@@ -1,4 +1,3 @@
-/* FE-014: Giao diện trang danh sách sản phẩm, đồng bộ màu với trang chủ. */
 .products-page {
   min-height: 65vh;
   background-color: #f5f3f0;
@@ -44,20 +43,6 @@
   gap: 24px 20px;
 }
 
-@media (max-width: 1050px) {
-  .products-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (max-width: 760px) {
-  .products-container { padding: 20px 18px 55px; }
-  .products-heading h1 { font-size: 32px; }
-  .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-  .products-list-top { align-items: flex-start; flex-direction: column; gap: 8px; }
-}
-@media (max-width: 460px) {
-  .products-grid { grid-template-columns: 1fr; }
-}
-
-/* FE-015: Bộ lọc danh mục và giá. */
 .products-toolbar {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -105,12 +90,10 @@
   .products-toolbar { grid-template-columns: 1fr; padding: 18px; gap: 16px; }
 }
 
-/* FE-016: Có thêm lựa chọn sắp xếp trên cùng hàng bộ lọc. */
 @media (min-width: 761px) {
   .products-toolbar { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-/* FE-045: Điều khiển phân trang. */
 .products-pagination {
   display: flex;
   align-items: center;
