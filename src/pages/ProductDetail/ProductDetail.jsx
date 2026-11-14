@@ -1,9 +1,12 @@
 import {Link, useParams} from "react-router";
+import { useState } from "react";
 import products from "../../data/products.js";
 import "./ProductDetail.css"
 
 function ProductDetail() {
     const { slug } = useParams();
+    const [expandedSlug, setExpandedSlug] = useState(null);
+    const isDescriptionExpanded = expandedSlug === slug;
     const product = products.find((item) => item.slug === slug);
 
     if (!product) {
@@ -114,6 +117,49 @@ function ProductDetail() {
                                 </p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section className="product-detail-description" aria-labelledby="product-description-heading">
+                <h2 id="product-description-heading" className="product-detail-description-heading">
+                    Mô tả chi tiết
+                </h2>
+
+                <div className="product-detail-description-panel">
+                    <div id="product-description-content" className={`product-detail-description-content ${
+                            isDescriptionExpanded ? "is-expanded" : ""
+                        }`}>
+                        {product.description.split("\n\n").map((block, index) => {
+                            const [heading, ...content] = block.split("\n");
+
+                            return (
+                                <div
+                                    className="product-detail-description-block"
+                                    key={index}
+                                >
+                                    <h3>{heading}</h3>
+                                    <p>{content.join("\n")}</p>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    <div className="product-detail-description-actions">
+                        <button type="button" className="product-detail-description-toggle" aria-expanded={isDescriptionExpanded} aria-controls="product-description-content"
+                            onClick={() =>
+                                setExpandedSlug(
+                                    isDescriptionExpanded ? null : slug
+                                )
+                            }
+                        >
+                            {isDescriptionExpanded ? "Rút gọn" : "Xem thêm"}
+
+                            <i className={`fa-solid ${isDescriptionExpanded ? "fa-chevron-up" : "fa-chevron-down"}`}
+                                aria-hidden="true"
+                            ></i>
+                        </button>
                     </div>
                 </div>
             </section>
