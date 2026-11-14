@@ -56,9 +56,9 @@ function Home() {
                     </p>
 
                     <div className="banner-actions">
-                        <a href="#" className="home-button banner-explore-btn">
+                        <Link to="/san-pham" className="home-button banner-explore-btn">
                             Khám phá sản phẩm
-                        </a>
+                        </Link>
 
                         <Link to="/bo-suu-tap" className="home-button collection-btn">
                             Bộ sưu tập quà tặng
@@ -124,9 +124,9 @@ function Home() {
                 </div>
 
                 <div className="category-all">
-                    <a href="#" className="category-all-button">
+                    <Link to="/san-pham" className="category-all-button">
                         Xem tất cả sản phẩm
-                    </a>
+                    </Link>
                 </div>
             </section>
 

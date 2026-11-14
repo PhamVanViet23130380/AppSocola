@@ -19,9 +19,9 @@ function Header() {
             <nav className="menuHeader" aria-label="Menu chính">
                 <a href="/">Trang chủ</a>
                 <a href="/gioi-thieu">Giới thiệu</a>
-                <a href="/#products">
+                <Link to="/san-pham">
                     Sản phẩm <span className="arrowMenu" aria-hidden="true"></span>
-                </a>
+                </Link>
                 <a href="/bo-suu-tap">
                     Sô cô la quà tặng <span className="arrowMenu" aria-hidden="true"></span>
                 </a>

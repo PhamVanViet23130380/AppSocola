@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import "./ProductCard.css";
 
 const formatPrice = (price) => `${Number(price).toLocaleString("vi-VN")}đ`;
 
 function ProductCard({ product, onAddToCart }) {
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   if (!product) return null;
 
@@ -46,6 +48,7 @@ function ProductCard({ product, onAddToCart }) {
         <button
             type="button"
             className="product-card-detail-button"
+            onClick={() => navigate(`/san-pham/${product.slug}`)}
         >
           Xem chi tiết
         </button>
