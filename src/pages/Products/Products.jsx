@@ -8,6 +8,7 @@ function Products() {
   const [category, setCategory] = useState("all");
   const [priceRange, setPriceRange] = useState("all");
   const [sortBy, setSortBy] = useState("default");
+  const [page, setPage] = useState(1);
 
   const filteredProducts = products.filter((product) => {
     const matchCategory = category === "all" || product.category === category;
@@ -21,6 +22,12 @@ function Products() {
   const sortedProducts = [...filteredProducts];
   if (sortBy === "price-asc") sortedProducts.sort((a, b) => a.price - b.price);
   if (sortBy === "price-desc") sortedProducts.sort((a, b) => b.price - a.price);
+
+  const PAGE_SIZE = 8;
+  const totalPages = Math.max(1, Math.ceil(sortedProducts.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const firstIndex = (currentPage - 1) * PAGE_SIZE;
+  const visibleProducts = sortedProducts.slice(firstIndex, firstIndex + PAGE_SIZE);
 
   return (
     <main className="products-page">
@@ -39,7 +46,7 @@ function Products() {
         <section className="products-toolbar" aria-label="Bộ lọc sản phẩm">
           <label className="products-filter">
             <span>Danh mục</span>
-            <select value={category} onChange={(event) => { setCategory(event.target.value); }}>
+            <select value={category} onChange={(event) => { setCategory(event.target.value); setPage(1); }}>
               {productCategories.map((item) => (
                 <option key={item.id} value={item.id}>{item.name}</option>
               ))}
@@ -48,7 +55,7 @@ function Products() {
 
           <label className="products-filter">
             <span>Khoảng giá</span>
-            <select value={priceRange} onChange={(event) => { setPriceRange(event.target.value); }}>
+            <select value={priceRange} onChange={(event) => { setPriceRange(event.target.value); setPage(1); }}>
               <option value="all">Tất cả mức giá</option>
               <option value="under-150">Dưới 150.000đ</option>
               <option value="150-250">Từ 150.000đ đến dưới 250.000đ</option>
@@ -58,7 +65,7 @@ function Products() {
 
           <label className="products-filter">
             <span>Sắp xếp theo</span>
-            <select value={sortBy} onChange={(event) => { setSortBy(event.target.value); }}>
+            <select value={sortBy} onChange={(event) => { setSortBy(event.target.value); setPage(1); }}>
               <option value="default">Mặc định</option>
               <option value="price-asc">Giá thấp đến cao</option>
               <option value="price-desc">Giá cao đến thấp</option>
@@ -69,7 +76,7 @@ function Products() {
             <button
               type="button"
               className="products-clear-filters"
-              onClick={() => { setCategory("all"); setPriceRange("all"); }}
+              onClick={() => { setCategory("all"); setPriceRange("all"); setPage(1); }}
             >
               Xóa bộ lọc
             </button>
@@ -79,14 +86,36 @@ function Products() {
         <section className="products-list" aria-label="Danh sách sản phẩm">
           <div className="products-list-top">
             <h2>Danh sách sản phẩm</h2>
-          <p className="products-count">Có {sortedProducts.length} sản phẩm</p>
+          <p className="products-count">
+            {sortedProducts.length === 0
+              ? "Không có sản phẩm phù hợp"
+              : `Hiển thị ${firstIndex + 1}–${firstIndex + visibleProducts.length} / ${sortedProducts.length} sản phẩm`}
+          </p>
           </div>
-          {sortedProducts.length > 0 ? (
+          {visibleProducts.length > 0 ? (
             <div className="products-grid">
-              {sortedProducts.map((product) => <ProductCard key={product.id} product={product} />)}
+              {visibleProducts.map((product) => <ProductCard key={product.id} product={product} />)}
             </div>
           ) : (
             <p className="products-empty">Không có sản phẩm phù hợp. Bạn hãy chọn lại bộ lọc.</p>
+          )}
+
+          {totalPages > 1 && (
+            <nav className="products-pagination" aria-label="Phân trang sản phẩm">
+              <button type="button" disabled={currentPage === 1} onClick={() => setPage(currentPage - 1)}>Trước</button>
+              {Array.from({ length: totalPages }, (_, index) => index + 1).map((number) => (
+                <button
+                  type="button"
+                  key={number}
+                  className={currentPage === number ? "is-active" : ""}
+                  aria-current={currentPage === number ? "page" : undefined}
+                  onClick={() => setPage(number)}
+                >
+                  {number}
+                </button>
+              ))}
+              <button type="button" disabled={currentPage === totalPages} onClick={() => setPage(currentPage + 1)}>Sau</button>
+            </nav>
           )}
         </section>
       </div>

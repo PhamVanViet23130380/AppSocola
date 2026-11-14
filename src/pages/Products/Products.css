@@ -109,3 +109,28 @@
 @media (min-width: 761px) {
   .products-toolbar { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
+/* FE-045: Điều khiển phân trang. */
+.products-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 38px;
+}
+.products-pagination button {
+  min-width: 42px;
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid #d8c5b7;
+  border-radius: 4px;
+  background: #fff;
+  color: #603e2f;
+  font: 600 14px Arial, sans-serif;
+  cursor: pointer;
+}
+.products-pagination button:hover:not(:disabled) { border-color: #603e2f; background: #f4e6d8; }
+.products-pagination button.is-active { background: #603e2f; border-color: #603e2f; color: #fff; }
+.products-pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
+.products-pagination button:focus-visible { outline: 2px solid #a76542; outline-offset: 2px; }
