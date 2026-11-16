@@ -3,9 +3,11 @@ import "./Header.css"
 import { useState } from "react"
 import { Link } from "react-router"
 import { products } from "../../data/products.js"
+import Cart from "../Cart/Cart.jsx"
 
 function Header() {
     const [searchOpen, setSearchOpen] = useState(false)
+    const [cartOpen, setCartOpen] = useState(false)
     const [searchText, setSearchText] = useState("")
     const popularProducts = products.filter((product) => product.category === "gift")
 
@@ -35,13 +37,21 @@ function Header() {
                     aria-label={searchOpen ? "Đóng tìm kiếm" : "Mở tìm kiếm"}
                     aria-expanded={searchOpen}
                     aria-controls="searchPanel"
-                    onClick={() => setSearchOpen(!searchOpen)}>
+                    onClick={() => {
+                        setCartOpen(false)
+                        setSearchOpen(!searchOpen)
+                    }}>
                     <i className={searchOpen ? "fa-solid fa-xmark" : "fa-solid fa-magnifying-glass"} aria-hidden="true"></i>
                 </button>
                 <Link to="/profile" aria-label="Thông tin cá nhân">
                     <i className="fa-solid fa-user" aria-hidden="true"></i>
                 </Link>
-                <button type="button" aria-label="Giỏ hàng">
+                <button
+                    type="button"
+                    aria-label="Giỏ hàng"
+                    onClick={() => {
+                        setSearchOpen(false)
+                        setCartOpen(true)}}>
                     <i className="fa-solid fa-cart-shopping" aria-hidden="true"></i>
                 </button>
             </div>
@@ -87,6 +97,7 @@ function Header() {
                     )}
                 </div>
             )}
+            {cartOpen && <Cart onClose={() => setCartOpen(false)} />}
         </header>
     )
 }
