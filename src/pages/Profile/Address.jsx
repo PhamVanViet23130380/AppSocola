@@ -72,6 +72,10 @@ function Address() {
                         <i className="fa-solid fa-location-dot" aria-hidden="true"></i>
                         <span>Địa chỉ của tôi</span>
                     </Link>
+                    <Link to="/profile/password" className="profileMenuLink">
+                        <i className="fa-solid fa-lock" aria-hidden="true"></i>
+                        <span>Đổi mật khẩu</span>
+                    </Link>
                     <button className="profileMenuLink profileLogout" type="button">
                         <i className="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
                         <span>Đăng xuất</span>
