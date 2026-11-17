@@ -1,6 +1,7 @@
 import {Link, useParams} from "react-router";
 import { useState } from "react";
 import products from "../../data/products.js";
+import ProductReviews from "../../components/ProductReview/ProductReviews.jsx";
 import "./ProductDetail.css"
 
 function ProductDetail() {
@@ -163,6 +164,15 @@ function ProductDetail() {
                     </div>
                 </div>
             </section>
+
+            <ProductReviews
+                key={product.slug}
+                productName={product.name}
+                currentUser={{
+                    id: "demo-user",
+                    name: "Tài khoản demo"
+                }}
+            />
         </main>
     );
 }
