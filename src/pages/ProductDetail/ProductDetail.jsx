@@ -1,6 +1,8 @@
 import {Link, useParams} from "react-router";
 import { useState } from "react";
 import products from "../../data/products.js";
+import ProductReviews from "../../components/ProductReview/ProductReviews.jsx";
+import ProductCarousel from "../../components/ProductCarousel/ProductCarousel.jsx";
 import "./ProductDetail.css"
 
 function ProductDetail() {
@@ -8,6 +10,19 @@ function ProductDetail() {
     const [expandedSlug, setExpandedSlug] = useState(null);
     const isDescriptionExpanded = expandedSlug === slug;
     const product = products.find((item) => item.slug === slug);
+
+    const sameCategoryProducts = products.filter((item) =>
+            item.category === product.category &&
+            item.id !== product.id
+    );
+
+    const otherCategoryProducts = products.filter((item) =>
+            item.category !== product.category &&
+            item.id !== product.id
+    );
+
+    const recommendedProducts = [...sameCategoryProducts, ...otherCategoryProducts].slice(0, 5);
+
 
     if (!product) {
         return (
@@ -162,6 +177,29 @@ function ProductDetail() {
                         </button>
                     </div>
                 </div>
+            </section>
+
+            <ProductReviews
+                key={product.slug}
+                productName={product.name}
+                currentUser={{
+                    id: "demo-user",
+                    name: "Tài khoản demo"
+                }}
+            />
+
+            <section className="product-detail-recommendations">
+                <div className="product-detail-recommendations-header">
+                    <p>KHÁM PHÁ THÊM</p>
+                    <h2>Có thể bạn sẽ thích</h2>
+                    <span>Khám phá thêm những hương vị socola dành riêng cho bạn.</span>
+                </div>
+
+                <ProductCarousel
+                    products={recommendedProducts}
+                    variant="recommend"
+                    showAddButton={false}
+                />
             </section>
         </main>
     );
