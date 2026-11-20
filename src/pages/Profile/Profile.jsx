@@ -4,6 +4,7 @@ import { Link } from "react-router"
 
 function Profile() {
     const [isEditing, setIsEditing] = useState(false)
+    const [avatar, setAvatar] = useState("")
     const [profile, setProfile] = useState({
         name: "Nguyễn Văn A",
         phone: "0123456789",
@@ -13,6 +14,14 @@ function Profile() {
 
     function handleChange(event) {
         setProfile({ ...profile, [event.target.name]: event.target.value })
+    }
+
+    function handleAvatarChange(event) {
+        const image = event.target.files[0]
+
+        if (image) {
+            setAvatar(URL.createObjectURL(image))
+        }
     }
 
     return (
@@ -28,6 +37,10 @@ function Profile() {
                         <i className="fa-solid fa-location-dot" aria-hidden="true"></i>
                         <span>Địa chỉ của tôi</span>
                     </Link>
+                    <Link to="/profile/password" className="profileMenuLink">
+                        <i className="fa-solid fa-lock" aria-hidden="true"></i>
+                        <span>Đổi mật khẩu</span>
+                    </Link>
                     <button className="profileMenuLink profileLogout" type="button">
                         <i className="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
                         <span>Đăng xuất</span>
@@ -39,9 +52,13 @@ function Profile() {
 
                     <div className="profileAvatarRow">
                         <div className="profileAvatar">
-                            <i className="fa-solid fa-user" aria-hidden="true"></i>
+                            {avatar ? (<img src={avatar} alt="Ảnh đại diện" />) : (<i className="fa-solid fa-user" aria-hidden="true"></i>)}
                         </div>
-                        <span>Ảnh đại diện</span>
+                        {isEditing ? (
+                            <label className="profilePhotoButton">
+                                Chọn ảnh
+                                <input type="file" accept="image/*" onChange={handleAvatarChange} />
+                            </label>) : (<span>Ảnh đại diện</span>)}
                     </div>
 
                     <div className="profileFields">
