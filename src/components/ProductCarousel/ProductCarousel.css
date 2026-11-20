@@ -175,6 +175,17 @@
     color: white;
 }
 
+.product-carousel--recommend .product-carousel-controls button{
+    color: #603e2f;
+    border-color: #d6b9a6;
+}
+
+.product-carousel--recommend .product-carousel-controls button:hover:not(:disabled){
+    background-color: #603e2f;
+    color: white;
+    border-color: #603e2f;
+}
+
 .product-carousel-detail-link{
     display: block;
     color: inherit;
