@@ -2,7 +2,7 @@
   width: 100%;
   background-color: #fbf8f4;
   color: #36241e;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-site);
   font-size: 15px;
   line-height: 1.65;
 }
@@ -15,7 +15,7 @@
 .contact-page input,
 .contact-page select,
 .contact-page textarea {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-site);
 }
 
 .contact-container {

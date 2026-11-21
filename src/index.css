@@ -1,10 +1,23 @@
+/* Font chữ thống nhất toàn website, dùng font có sẵn trên máy. */
+:root {
+  --font-site: "Segoe UI", Arial, sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-site);
   background-color: #FFF8F0;
   color: #333;
+}
+
+/* Đảm bảo ô nhập liệu và nút bấm không dùng font mặc định riêng của trình duyệt. */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }

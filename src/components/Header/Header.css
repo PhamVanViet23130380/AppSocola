@@ -37,7 +37,7 @@
 .menuHeader a {
     color: #171412;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
@@ -250,4 +250,30 @@
     color: #756960;
     font-size: 18px;
     text-align: center;
+}
+/* Hiển thị số lượng trên biểu tượng giỏ hàng, chỉ xuất hiện khi có sản phẩm. */
+.iconsHeader .header-cart-trigger {
+    position: relative;
+    overflow: visible;
+}
+
+.header-cart-count {
+    position: absolute;
+    top: -7px;
+    right: -9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 4px;
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+    background: #8d4b2d;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
 }

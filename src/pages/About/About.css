@@ -1,7 +1,7 @@
 .about-page {
   background: #fbf9f5;
   color: #30251f;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-site);
   font-size: 15px;
   line-height: 1.75;
 }
@@ -19,7 +19,7 @@
 
 .about-page h1, .about-page h2, .about-page h3, .about-page blockquote {
   color: #38231d;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-site);
   font-weight: 600;
   line-height: 1.28;
   margin: 0;
@@ -128,7 +128,7 @@
   gap: 12px;
   border: 1px solid transparent;
   border-radius: 4px;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-site);
   font-size: 12px;
   font-weight: 700;
   padding: 15px 22px;
@@ -185,7 +185,7 @@
 }
 
 .about-photo-note p {
-  font-family:Arial, sans-serif;
+  font-family:var(--font-site);
   font-weight: 600;
   font-size: 19px;
 }
@@ -199,7 +199,7 @@
 
 .about-note-quote {
   color: #c69c6d;
-  font-family:Arial, sans-serif;
+  font-family:var(--font-site);
   font-size:32px;
   line-height: .5;
 }
@@ -261,7 +261,7 @@
 }
 
 .about-story-points strong {
-  font: 600 29px Arial, sans-serif;
+  font: 600 29px var(--font-site);
   color: #38231d;
 }
 
@@ -371,7 +371,7 @@
   position:absolute;
   right:23px;
   top:16px;
-  font:600 29px Arial, sans-serif;
+  font:600 29px var(--font-site);
   color:#e7ddd5;
 }
 
@@ -477,7 +477,7 @@
 .about-quote-signature {
   display:block;
   margin-top:30px;
-  font-family:Arial, sans-serif;
+  font-family:var(--font-site);
   font-size:26px;
   color:#765043;
   font-style:italic;
@@ -485,7 +485,7 @@
 
 .about-quote-signature span {
   display:block;
-  font:500 11px Arial, sans-serif;
+  font:500 11px var(--font-site);
   color:#70665f;
   margin-top:4px;
 }

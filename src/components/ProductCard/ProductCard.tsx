@@ -11,6 +11,7 @@ type ProductCardProps = {
 type CartItem = {
   id: number
   quantity: number
+  sale?: boolean
 }
 
 const formatPrice = (price: number) => `${Number(price).toLocaleString("vi-VN")}đ`;
@@ -32,7 +33,7 @@ function ProductCard({ product, onAddToCart }: ProductCardProps) {
     try {
       const saved = JSON.parse(localStorage.getItem("chocoluxe-cart") || "[]");
       const cart: CartItem[] = Array.isArray(saved) ? saved : [];
-      const existing = cart.find((item) => item.id === product.id);
+      const existing = cart.find((item) => item.id === product.id && !item.sale);
 
       if (existing) {
         existing.quantity += 1;
@@ -41,6 +42,7 @@ function ProductCard({ product, onAddToCart }: ProductCardProps) {
       }
 
       localStorage.setItem("chocoluxe-cart", JSON.stringify(cart));
+      window.dispatchEvent(new Event("chocoluxe-cart-updated"));
       setMessage("Đã thêm vào giỏ hàng");
     } catch {
       setMessage("Không thể lưu giỏ hàng");
