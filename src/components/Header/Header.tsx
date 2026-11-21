@@ -30,6 +30,28 @@ function Header() {
     const [searchOpen, setSearchOpen] = useState(false)
     const [cartOpen, setCartOpen] = useState(false)
     const [cartQuantity, setCartQuantity] = useState(getCartQuantity)
+    const [isHeaderHidden, setIsHeaderHidden] = useState(false)
+
+    useEffect(() => {
+        let lastY = window.scrollY
+        const handleScroll = () => {
+            const currentY = Math.max(0, window.scrollY)
+
+            if (currentY === 0) {
+                setIsHeaderHidden(false)
+                lastY = 0
+                return
+            }
+
+            if (Math.abs(currentY - lastY) < 6) return
+
+            setIsHeaderHidden(currentY < lastY)
+            lastY = currentY
+        }
+
+        window.addEventListener("scroll", handleScroll, { passive: true })
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [])
 
     useEffect(() => {
         const updateCartQuantity = () => setCartQuantity(getCartQuantity())
@@ -49,7 +71,7 @@ function Header() {
     const popularProducts = products.filter((product) => product.category === "gift")
 
     return (
-        <header className="header">
+        <header className={isHeaderHidden && !searchOpen && !cartOpen ? "header header--hidden" : "header"} onFocus={() => setIsHeaderHidden(false)}>
             <a className="logoWeb" href="/" aria-label="ChocoLuxe - Trang chủ">
                 <img src="/favicon.svg" alt="" />
                 <span>ChocoLuxe</span>
