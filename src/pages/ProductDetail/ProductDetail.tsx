@@ -5,11 +5,18 @@ import ProductReviews from "../../components/ProductReview/ProductReviews";
 import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
 import "./ProductDetail.css"
 
+type CartItem = { id: number; quantity: number };
+
 function ProductDetail() {
     const { slug } = useParams<"slug">();
     const [expandedSlug, setExpandedSlug] = useState<string | null>(null);
+    const [selectedQuantity, setSelectedQuantity] = useState<{ slug: string; value: number } | null>(null);
+    const [cartNotice, setCartNotice] = useState<{ slug: string; message: string } | null>(null);
     const isDescriptionExpanded = expandedSlug === slug;
     const product = products.find((item) => item.slug === slug);
+    // Khi chuyển sang slug khác, số lượng hiển thị mặc định về 1.
+    const quantity = selectedQuantity && selectedQuantity.slug === slug ? selectedQuantity.value : 1;
+    const cartMessage = cartNotice && cartNotice.slug === slug ? cartNotice.message : "";
 
     if (!product) {
         return (
@@ -20,6 +27,37 @@ function ProductDetail() {
             </main>
         );
     }
+
+    const changeQuantity = (amount: number) => {
+        setSelectedQuantity((current) => ({
+            slug: product.slug,
+            value: Math.max(1, (current?.slug === product.slug ? current.value : 1) + amount),
+        }));
+        setCartNotice(null);
+    };
+
+    const handleAddToCart = () => {
+        try {
+            // Dùng cùng khóa và cấu trúc dữ liệu với ProductCard.tsx.
+            const saved = JSON.parse(localStorage.getItem("chocoluxe-cart") || "[]");
+            const cart: CartItem[] = Array.isArray(saved) ? saved : [];
+            const existing = cart.find((item) => item.id === product.id);
+
+            if (existing) {
+                existing.quantity += quantity;
+            } else {
+                cart.push({ id: product.id, quantity });
+            }
+
+            localStorage.setItem("chocoluxe-cart", JSON.stringify(cart));
+            setCartNotice({
+                slug: product.slug,
+                message: `Đã thêm ${quantity} sản phẩm vào giỏ hàng`,
+            });
+        } catch {
+            setCartNotice({ slug: product.slug, message: "Không thể lưu giỏ hàng" });
+        }
+    };
 
     const sameCategoryProducts = products.filter(
         (item) => item.category === product.category && item.id !== product.id
@@ -90,21 +128,35 @@ function ProductDetail() {
 
                         <div className="product-detail-actions">
                             <div className="product-detail-quantity-control">
-                                <button type="button" aria-label="Giảm số lượng">
+                                <button
+                                    type="button"
+                                    aria-label="Giảm số lượng"
+                                    onClick={() => changeQuantity(-1)}
+                                    disabled={quantity <= 1}
+                                >
                                     −
                                 </button>
 
-                                <span>1</span>
+                                <span aria-live="polite">{quantity}</span>
 
-                                <button type="button" aria-label="Tăng số lượng">
+                                <button
+                                    type="button"
+                                    aria-label="Tăng số lượng"
+                                    onClick={() => changeQuantity(1)}
+                                >
                                     +
                                 </button>
                             </div>
 
-                            <button type="button" className="product-detail-add-button">
+                            <button
+                                type="button"
+                                className="product-detail-add-button"
+                                onClick={handleAddToCart}
+                            >
                                 Thêm vào giỏ hàng
                             </button>
                         </div>
+                        <div role="status" aria-live="polite">{cartMessage}</div>
                     </div>
 
                     <div className="product-detail-support">
