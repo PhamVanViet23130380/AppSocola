@@ -1,13 +1,50 @@
 import "@fortawesome/fontawesome-free/css/all.min.css"
 import "./Header.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router"
 import { products } from "../../data/products"
 import Cart from "../Cart/Cart"
 
+// Đếm tổng số lượng, bao gồm cả sản phẩm Flash Sale và sản phẩm giá thường.
+// Chỉ tính những dòng giỏ hàng hợp lệ có sản phẩm trong dữ liệu mẫu.
+function getCartQuantity(): number {
+    try {
+        const saved: unknown = JSON.parse(localStorage.getItem("chocoluxe-cart") || "[]")
+        if (!Array.isArray(saved)) return 0
+        const validIds = new Set(products.map((product) => product.id))
+
+        return saved.reduce((total: number, item: unknown) => {
+            if (typeof item !== "object" || item === null || !("id" in item) || !("quantity" in item)) return total
+            const { id, quantity } = item
+            return typeof id === "number" && validIds.has(id) &&
+                typeof quantity === "number" && Number.isSafeInteger(quantity) && quantity > 0
+                ? total + quantity
+                : total
+        }, 0)
+    } catch {
+        return 0
+    }
+}
+
 function Header() {
     const [searchOpen, setSearchOpen] = useState(false)
     const [cartOpen, setCartOpen] = useState(false)
+    const [cartQuantity, setCartQuantity] = useState(getCartQuantity)
+
+    useEffect(() => {
+        const updateCartQuantity = () => setCartQuantity(getCartQuantity())
+        const onStorageChange = (event: StorageEvent) => {
+            if (event.key === "chocoluxe-cart" || event.key === null) updateCartQuantity()
+        }
+
+        // storage chỉ chạy giữa các tab; sự kiện tùy chỉnh giúp cập nhật ngay cùng tab.
+        window.addEventListener("chocoluxe-cart-updated", updateCartQuantity)
+        window.addEventListener("storage", onStorageChange)
+        return () => {
+            window.removeEventListener("chocoluxe-cart-updated", updateCartQuantity)
+            window.removeEventListener("storage", onStorageChange)
+        }
+    }, [])
     const [searchText, setSearchText] = useState("")
     const popularProducts = products.filter((product) => product.category === "gift")
 
@@ -48,11 +85,17 @@ function Header() {
                 </Link>
                 <button
                     type="button"
-                    aria-label="Giỏ hàng"
+                    className="header-cart-trigger"
+                    aria-label={cartQuantity > 0 ? `Giỏ hàng, ${cartQuantity} sản phẩm` : "Giỏ hàng"}
                     onClick={() => {
                         setSearchOpen(false)
                         setCartOpen(true)}}>
                     <i className="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                    {cartQuantity > 0 && (
+                        <span className="header-cart-count" aria-hidden="true">
+                            {cartQuantity > 99 ? "99+" : cartQuantity}
+                        </span>
+                    )}
                 </button>
             </div>
 

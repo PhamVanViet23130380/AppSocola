@@ -5,7 +5,7 @@ import ProductReviews from "../../components/ProductReview/ProductReviews";
 import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
 import "./ProductDetail.css"
 
-type CartItem = { id: number; quantity: number };
+type CartItem = { id: number; quantity: number; sale?: boolean };
 
 function ProductDetail() {
     const { slug } = useParams<"slug">();
@@ -41,7 +41,7 @@ function ProductDetail() {
             // Dùng cùng khóa và cấu trúc dữ liệu với ProductCard.tsx.
             const saved = JSON.parse(localStorage.getItem("chocoluxe-cart") || "[]");
             const cart: CartItem[] = Array.isArray(saved) ? saved : [];
-            const existing = cart.find((item) => item.id === product.id);
+            const existing = cart.find((item) => item.id === product.id && !item.sale);
 
             if (existing) {
                 existing.quantity += quantity;
@@ -50,6 +50,7 @@ function ProductDetail() {
             }
 
             localStorage.setItem("chocoluxe-cart", JSON.stringify(cart));
+            window.dispatchEvent(new Event("chocoluxe-cart-updated"));
             setCartNotice({
                 slug: product.slug,
                 message: `Đã thêm ${quantity} sản phẩm vào giỏ hàng`,

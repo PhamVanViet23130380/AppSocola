@@ -7,7 +7,7 @@ type CartProps = {
     onClose: () => void;
 };
 
-type CartItem = { id: number; quantity: number };
+type CartItem = { id: number; quantity: number; sale?: boolean };
 
 function readCart(): CartItem[] {
     try {
@@ -17,7 +17,7 @@ function readCart(): CartItem[] {
             typeof item === "object" && item !== null &&
             typeof item.id === "number" && Number.isInteger(item.id) &&
             typeof item.quantity === "number" && Number.isInteger(item.quantity) &&
-            item.quantity > 0
+            item.quantity > 0 && (item.sale === undefined || typeof item.sale === "boolean")
         );
     } catch {
         return [];
@@ -32,6 +32,7 @@ function Cart({ onClose }: CartProps) {
     const saveCart = (next: CartItem[]) => {
         try {
             localStorage.setItem("chocoluxe-cart", JSON.stringify(next));
+            window.dispatchEvent(new Event("chocoluxe-cart-updated"));
             setCartItems(next);
             setError("");
         } catch {
@@ -39,23 +40,28 @@ function Cart({ onClose }: CartProps) {
         }
     };
 
-    const updateQuantity = (id: number, amount: number) => {
-        saveCart(cartItems.map((item) => item.id === id
+    const updateQuantity = (id: number, amount: number, sale: boolean) => {
+        saveCart(cartItems.map((item) => item.id === id && Boolean(item.sale) === sale
             ? { ...item, quantity: Math.max(1, item.quantity + amount) }
             : item
         ));
     };
 
-    const removeItem = (id: number) => {
-        saveCart(cartItems.filter((item) => item.id !== id));
+    const removeItem = (id: number, sale: boolean) => {
+        saveCart(cartItems.filter((item) => !(item.id === id && Boolean(item.sale) === sale)));
     };
 
     const displayedItems = cartItems.flatMap((item) => {
         const product = products.find((candidate) => candidate.id === item.id);
-        return product ? [{ product, quantity: item.quantity }] : [];
+        return product ? [{
+            product,
+            quantity: item.quantity,
+            sale: Boolean(item.sale),
+            unitPrice: item.sale ? Math.round(product.price * 0.8) : product.price,
+        }] : [];
     });
     const subtotal = displayedItems.reduce(
-        (total, item) => total + item.product.price * item.quantity,
+        (total, item) => total + item.unitPrice * item.quantity,
         0
     );
 
@@ -89,8 +95,8 @@ function Cart({ onClose }: CartProps) {
                 ) : (
                     <>
                         <div className="cartItems">
-                            {displayedItems.map(({ product, quantity }) => (
-                                <article className="cartItem" key={product.id}>
+                            {displayedItems.map(({ product, quantity, sale, unitPrice }) => (
+                                <article className="cartItem" key={`${product.id}-${sale ? "sale" : "regular"}`}>
                                     <Link className="cartItemImage" to={`/san-pham/${product.slug}`} onClick={onClose}>
                                         <img src={product.image} alt={product.name} />
                                     </Link>
@@ -98,14 +104,14 @@ function Cart({ onClose }: CartProps) {
                                         <Link className="cartItemName" to={`/san-pham/${product.slug}`} onClick={onClose}>
                                             {product.name}
                                         </Link>
-                                        <p className="cartItemPrice">{product.price.toLocaleString("vi-VN")} đ</p>
+                                        <p className="cartItemPrice">{sale ? "Flash Sale: " : ""}{unitPrice.toLocaleString("vi-VN")} đ</p>
                                         <div className="cartItemControls">
                                             <div className="cartItemQuantity" aria-label={`Số lượng ${product.name}`}>
-                                                <button type="button" onClick={() => updateQuantity(product.id, -1)} disabled={quantity <= 1} aria-label={`Giảm số lượng ${product.name}`}>−</button>
+                                                <button type="button" onClick={() => updateQuantity(product.id, -1, sale)} disabled={quantity <= 1} aria-label={`Giảm số lượng ${product.name}`}>−</button>
                                                 <span>{quantity}</span>
-                                                <button type="button" onClick={() => updateQuantity(product.id, 1)} aria-label={`Tăng số lượng ${product.name}`}>+</button>
+                                                <button type="button" onClick={() => updateQuantity(product.id, 1, sale)} aria-label={`Tăng số lượng ${product.name}`}>+</button>
                                             </div>
-                                            <button type="button" className="cartItemRemove" onClick={() => removeItem(product.id)} aria-label={`Xóa ${product.name} khỏi giỏ hàng`}>Xóa</button>
+                                            <button type="button" className="cartItemRemove" onClick={() => removeItem(product.id, sale)} aria-label={`Xóa ${product.name} khỏi giỏ hàng`}>Xóa</button>
                                         </div>
                                     </div>
                                 </article>

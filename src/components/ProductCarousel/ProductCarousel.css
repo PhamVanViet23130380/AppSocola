@@ -201,3 +201,13 @@
     outline-offset: 4px;
 }
 
+
+/* Thông báo sau khi thêm sản phẩm vào giỏ; giữ chiều cao thẻ ổn định. */
+.flashsale-feedback {
+    min-height: 18px;
+    margin: 8px 0 0;
+    color: #603e2f;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+}
