@@ -7,8 +7,14 @@
     padding: 12px 4%;
     background-color: #ffffff;
     border-bottom: 1px solid #eee7e2;
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 5;
+    transition: transform 0.2s ease;
+}
+
+.header.header--hidden{
+    transform: translateY(-100%);
 }
 
 .logoWeb {
@@ -277,3 +283,5 @@
     white-space: nowrap;
     pointer-events: none;
 }
+
+
