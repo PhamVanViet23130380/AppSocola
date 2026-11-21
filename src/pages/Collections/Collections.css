@@ -2,7 +2,7 @@
   width: 100%;
   background-color: #fbf9f5;
   color: #36251e;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-site);
   font-size: 15px;
   line-height: 1.65;
 }
@@ -143,7 +143,7 @@
   border-radius: 4px;
   background-color: #f0ebe5;
   color: #5a4a42;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-site);
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
@@ -322,7 +322,7 @@
   border-radius: 4px;
   background-color: #38231d;
   color: #ffffff;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-site);
   font-size: 12px;
   font-weight: 700;
   white-space: nowrap;

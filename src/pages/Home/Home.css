@@ -26,7 +26,7 @@
 .banner-title{
     margin: 0 0 26px;
     color: #3d241c;
-    font-family: Georgia, serif;
+    font-family: var(--font-site);
     font-size: 60px;
     line-height: 1.15;
     text-align: left;
@@ -164,7 +164,7 @@
 }
 
 .banner-badge strong{
-    font-family: Georgia, serif;
+    font-family: var(--font-site);
     font-size: 17px;
     line-height: 1.2;
 }
@@ -202,7 +202,7 @@
 }
 
 .category-header h2{
-    font-family: Georgia, serif;
+    font-family: var(--font-site);
     font-size: 42px;
     color: #3d241c;
     margin: 10px 0;
@@ -237,7 +237,7 @@
 }
 
 .category-card h3{
-    font-family: Georgia, serif;
+    font-family: var(--font-site);
     margin: 20px 0 20px;
     color: #3d241c;
     font-size: 22px;
@@ -295,7 +295,7 @@
 .flashsale-heading h2{
     margin: 10px 0;
     color: #ffffff;
-    font-family: Georgia, serif;
+    font-family: var(--font-site);
     font-size: 42px;
 }
 
@@ -345,7 +345,7 @@
 .new-products-header h2{
     margin: 10px 0;
     color: #3d241c;
-    font-family: Georgia, serif;
+    font-family: var(--font-site);
     font-size: 42px;
 }
 
@@ -370,7 +370,7 @@
 .bestseller-header h2{
     margin: 10px 0;
     color: #3d241c;
-    font-family: Georgia, serif;
+    font-family: var(--font-site);
     font-size: 42px;
 }
 
