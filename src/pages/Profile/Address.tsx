@@ -2,8 +2,20 @@ import { Link } from "react-router"
 import "./Address.css"
 import { useState } from "react"
 
+type AddressEntry = {
+    id: number
+    name: string
+    phone: string
+    address: string
+    isDefault: boolean
+    province?: string
+    district?: string
+    ward?: string
+    detail?: string
+}
+
 function Address() {
-    const [addresses, setAddresses] = useState([
+    const [addresses, setAddresses] = useState<AddressEntry[]>([
         {
             id: 1,
             name: "Nguyễn Văn A",
@@ -27,14 +39,14 @@ function Address() {
         },
     ])
     const [showAddressForm, setShowAddressForm] = useState(false)
-    const [selectedAddress, setSelectedAddress] = useState(null)
+    const [selectedAddress, setSelectedAddress] = useState<AddressEntry | null>(null)
 
     function handleAdd() {
         setSelectedAddress(null)
         setShowAddressForm(true)
     }
 
-    function handleEdit(address) {
+    function handleEdit(address: AddressEntry) {
         setSelectedAddress(address)
         setShowAddressForm(true)
     }
@@ -44,15 +56,15 @@ function Address() {
         setSelectedAddress(null)
     }
 
-    function handleSetDefault(id) {
+    function handleSetDefault(id: number) {
         setAddresses(addresses.map((address) => ({...address, isDefault: address.id === id,})))
     }
 
-    function handleDelete(id) {
+    function handleDelete(id: number) {
         const deletedAddress = addresses.find((address) => address.id === id)
         const remainingAddresses = addresses.filter((address) => address.id !== id)
 
-        if (deletedAddress.isDefault && remainingAddresses.length > 0) {
+        if (deletedAddress?.isDefault && remainingAddresses.length > 0) {
             remainingAddresses[0] = { ...remainingAddresses[0], isDefault: true }
         }
 

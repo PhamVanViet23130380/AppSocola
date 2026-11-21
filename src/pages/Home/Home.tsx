@@ -1,7 +1,7 @@
 import {Link} from "react-router";
 import "./Home.css";
-import { products } from "../../data/products.js";
-import ProductCarousel from "../../components/ProductCarousel/ProductCarousel.jsx";
+import { products } from "../../data/products";
+import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
 
 const flashSaleProducts = products.slice(0, 5);
 
@@ -12,7 +12,7 @@ const bestSellerIds = [4, 1, 7, 10, 12];
 
 const bestSellerProducts = bestSellerIds
     .map((id) => products.find((product) => product.id === id))
-    .filter(Boolean);
+    .filter((product) => product !== undefined);
 
 
 

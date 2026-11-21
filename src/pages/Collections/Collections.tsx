@@ -1,26 +1,26 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import { collectionCategories, collections } from "./collectionsData.js";
+import { collectionCategories, collections } from "./collectionsData";
 import "./Collections.css";
 
 function Collections() {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [expandedCollection, setExpandedCollection] = useState(null);
+  const [expandedCollection, setExpandedCollection] = useState<string | null>(null);
 
   const filteredCollections = selectedCategory === "all"
     ? collections
     : collections.filter((collection) => collection.category === selectedCategory);
 
-  const handleFilter = (category) => {
+  const handleFilter = (category: string) =>{
     setSelectedCategory(category);
     setExpandedCollection(null);
   };
 
-  const toggleDetails = (id) => {
+  const toggleDetails = (id: string) => {
     setExpandedCollection((current) => current === id ? null : id);
   };
 
-  const formatPrice = (price) => `${new Intl.NumberFormat("vi-VN").format(price)} ₫`;
+  const formatPrice = (price: number) => `${new Intl.NumberFormat("vi-VN").format(price)} ₫`;
 
   return (
     <main className="collections-page">

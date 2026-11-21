@@ -1,5 +1,5 @@
 import "./Profile.css"
-import { useState } from "react"
+import { useState, type ChangeEvent } from "react"
 import { Link } from "react-router"
 
 function Profile() {
@@ -12,12 +12,12 @@ function Profile() {
         gender: "",
     })
 
-    function handleChange(event) {
+    function handleChange(event: ChangeEvent<HTMLInputElement>) {
         setProfile({ ...profile, [event.target.name]: event.target.value })
     }
 
-    function handleAvatarChange(event) {
-        const image = event.target.files[0]
+    function handleAvatarChange(event: ChangeEvent<HTMLInputElement>) {
+        const image = event.currentTarget.files?.[0]
 
         if (image) {
             setAvatar(URL.createObjectURL(image))

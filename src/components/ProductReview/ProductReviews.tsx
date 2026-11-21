@@ -1,11 +1,26 @@
-import { useState } from "react";
+import { useState, type SubmitEvent } from "react";
 import "./ProductReviews.css";
 
-function ProductReviews({ productName, currentUser  }) {
+type ProductReviewsProps = {
+    productName: string;
+    currentUser?: {
+        id: string;
+        name: string;
+    };
+};
+
+type Review = {
+    id: string;
+    userName: string;
+    rating: number;
+    content: string;
+};
+
+function ProductReviews({ productName, currentUser }: ProductReviewsProps) {
     const [showForm, setShowForm] = useState(false);
     const [rating, setRating] = useState(0);
     const [content, setContent] = useState("");
-    const [reviews, setReviews] = useState([]);
+    const [reviews, setReviews] = useState<Review[]>([]);
     const [error, setError] = useState("");
 
     const ratingLabels = [
@@ -17,7 +32,7 @@ function ProductReviews({ productName, currentUser  }) {
     ];
     const averageRating = reviews.length > 0 ? reviews.reduce((total, review) => total + review.rating, 0) / reviews.length : 0;
 
-    function handleSubmit(event) {
+    function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
         event.preventDefault();
 
         if (!currentUser?.name) {

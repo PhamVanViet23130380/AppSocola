@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import { products, productCategories } from "../../data/products.js";
-import ProductCard from "../../components/ProductCard/ProductCard.jsx";
+import { products, productCategories } from "../../data/products";
+import ProductCard from "../../components/ProductCard/ProductCard";
 import "./Products.css";
 
 function Products() {

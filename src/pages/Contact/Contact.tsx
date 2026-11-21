@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ChangeEvent, type SubmitEvent } from "react";
 import "./Contact.css";
 
 const initialForm = {
@@ -16,7 +16,7 @@ function Contact() {
   const [draftReady, setDraftReady] = useState(false);
   const [copyStatus, setCopyStatus] = useState("");
 
-  const updateField = (event) => {
+  const updateField = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
     setForm((previous) => ({ ...previous, [name]: value }));
     setDraftReady(false);
@@ -26,7 +26,7 @@ function Contact() {
   const draftText = `Họ và tên: ${form.name.trim()}\nSố điện thoại: ${form.phone.trim()}\nEmail: ${form.email.trim()}\nChủ đề: ${form.subject}\n\nNội dung:\n${form.message.trim()}`;
   const mailtoLink = `mailto:${contactEmail}?subject=${encodeURIComponent(`[ChocoLuxe] ${form.subject}`)}&body=${encodeURIComponent(draftText)}`;
 
-  const prepareEmail = (event) => {
+  const prepareEmail = (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     setDraftReady(true);
     setCopyStatus("");
