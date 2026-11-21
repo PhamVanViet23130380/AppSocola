@@ -1,7 +1,11 @@
 import { Link } from "react-router"
 import "./Cart.css"
 
-function Cart({ onClose }) {
+type CartProps = {
+    onClose: () => void;
+};
+
+function Cart({ onClose }: CartProps) {
     return (
         <div className="cartOverlay">
             <button

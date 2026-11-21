@@ -1,14 +1,28 @@
 // FE-012: Du lieu mau de hien thi frontend; KHONG phai san pham/ton kho that.
 // Hinh SVG trong public/images/products/ chi la anh minh hoa, co the thay anh chup sau.
-export const productCategories = [
+type ProductCategory = "dark" | "milk" | "nuts" | "gift"
+
+export const productCategories: { id: ProductCategory | "all"; name: string }[] = [
   { id: "all", name: "Tất cả" },
   { id: "dark", name: "Socola đen" },
   { id: "milk", name: "Socola sữa" },
   { id: "nuts", name: "Socola hạt" },
   { id: "gift", name: "Hộp quà socola" },
-];
+]
 
-export const products = [
+export interface Product {
+  id: number
+  slug: string
+  name: string
+  price: number
+  category: ProductCategory
+  cocoaPercent: number | null
+  weightGrams: number
+  image: string
+  description: string
+}
+
+export const products: Product[] = [
   {
     id: 1,
     slug: "socola-den-70",

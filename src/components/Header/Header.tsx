@@ -2,8 +2,8 @@ import "@fortawesome/fontawesome-free/css/all.min.css"
 import "./Header.css"
 import { useState } from "react"
 import { Link } from "react-router"
-import { products } from "../../data/products.js"
-import Cart from "../Cart/Cart.jsx"
+import { products } from "../../data/products"
+import Cart from "../Cart/Cart"
 
 function Header() {
     const [searchOpen, setSearchOpen] = useState(false)

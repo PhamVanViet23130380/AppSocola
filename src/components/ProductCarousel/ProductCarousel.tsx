@@ -1,8 +1,15 @@
 import "./ProductCarousel.css";
 import { useState } from "react";
 import {Link} from "react-router";
+import type {Product} from "../../data/products";
 
-function ProductCarousel({ products, variant = "default" }) {
+type ProductCarouselProps = {
+    products: Product[];
+    variant?: "default" | "sale" | "new" | "hot" | "recommend";
+    showAddButton?: boolean;
+};
+
+function ProductCarousel({products, variant = "default", showAddButton = true,}: ProductCarouselProps) {
     const [startIndex, setStartIndex] = useState(0);
 
     const visibleCount = 4;

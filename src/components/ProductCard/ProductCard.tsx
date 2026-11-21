@@ -1,10 +1,21 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import "./ProductCard.css";
+import type {Product} from "../../data/products";
 
-const formatPrice = (price) => `${Number(price).toLocaleString("vi-VN")}đ`;
+type ProductCardProps = {
+  product: Product
+  onAddToCart?: (product: Product) => void
+}
 
-function ProductCard({ product, onAddToCart }) {
+type CartItem = {
+  id: number
+  quantity: number
+}
+
+const formatPrice = (price: number) => `${Number(price).toLocaleString("vi-VN")}đ`;
+
+function ProductCard({ product, onAddToCart }: ProductCardProps) {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
@@ -20,7 +31,7 @@ function ProductCard({ product, onAddToCart }) {
     // Dùng tạm localStorage đến khi nhóm hoàn thiện CartContext ở FE-021.
     try {
       const saved = JSON.parse(localStorage.getItem("chocoluxe-cart") || "[]");
-      const cart = Array.isArray(saved) ? saved : [];
+      const cart: CartItem[] = Array.isArray(saved) ? saved : [];
       const existing = cart.find((item) => item.id === product.id);
 
       if (existing) {

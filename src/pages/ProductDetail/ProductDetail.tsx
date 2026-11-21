@@ -1,28 +1,15 @@
 import {Link, useParams} from "react-router";
 import { useState } from "react";
-import products from "../../data/products.js";
-import ProductReviews from "../../components/ProductReview/ProductReviews.jsx";
-import ProductCarousel from "../../components/ProductCarousel/ProductCarousel.jsx";
+import products from "../../data/products";
+import ProductReviews from "../../components/ProductReview/ProductReviews";
+import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
 import "./ProductDetail.css"
 
 function ProductDetail() {
-    const { slug } = useParams();
-    const [expandedSlug, setExpandedSlug] = useState(null);
+    const { slug } = useParams<"slug">();
+    const [expandedSlug, setExpandedSlug] = useState<string | null>(null);
     const isDescriptionExpanded = expandedSlug === slug;
     const product = products.find((item) => item.slug === slug);
-
-    const sameCategoryProducts = products.filter((item) =>
-            item.category === product.category &&
-            item.id !== product.id
-    );
-
-    const otherCategoryProducts = products.filter((item) =>
-            item.category !== product.category &&
-            item.id !== product.id
-    );
-
-    const recommendedProducts = [...sameCategoryProducts, ...otherCategoryProducts].slice(0, 5);
-
 
     if (!product) {
         return (
@@ -33,6 +20,16 @@ function ProductDetail() {
             </main>
         );
     }
+
+    const sameCategoryProducts = products.filter(
+        (item) => item.category === product.category && item.id !== product.id
+    );
+
+    const otherCategoryProducts = products.filter(
+        (item) => item.category !== product.category && item.id !== product.id
+    );
+
+    const recommendedProducts = [...sameCategoryProducts, ...otherCategoryProducts,].slice(0, 5);
 
     return (
         <main className="product-detail">
@@ -165,7 +162,7 @@ function ProductDetail() {
                         <button type="button" className="product-detail-description-toggle" aria-expanded={isDescriptionExpanded} aria-controls="product-description-content"
                             onClick={() =>
                                 setExpandedSlug(
-                                    isDescriptionExpanded ? null : slug
+                                    isDescriptionExpanded ? null : product.slug
                                 )
                             }
                         >

@@ -54,7 +54,13 @@ const values = [
   { icon: "fa-hand-holding-heart", title: "Kết nối", description: "Tin rằng một món quà nhỏ cũng có thể làm khoảnh khắc trở nên đáng nhớ." },
 ];
 
-function SectionIntro({ eyebrow, title, description }) {
+type SectionIntroProps = {
+  eyebrow: string;
+  title: string;
+  description?: string;
+};
+
+function SectionIntro({ eyebrow, title, description }: SectionIntroProps) {
   return (
     <div className="about-section-intro">
       <span className="about-eyebrow">{eyebrow}</span>
