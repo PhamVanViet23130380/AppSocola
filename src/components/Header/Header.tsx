@@ -33,6 +33,18 @@ function Header() {
     const [isHeaderHidden, setIsHeaderHidden] = useState(false)
 
     useEffect(() => {
+        if (!searchOpen && !cartOpen) return
+
+        const page = document.documentElement
+        const oldOverflow = page.style.overflow
+        page.style.overflow = "hidden"
+
+        return () => {
+            page.style.overflow = oldOverflow
+        }
+    }, [searchOpen, cartOpen])
+
+    useEffect(() => {
         let lastY = window.scrollY
         const handleScroll = () => {
             const currentY = Math.max(0, window.scrollY)
@@ -120,6 +132,14 @@ function Header() {
                     )}
                 </button>
             </div>
+
+            {searchOpen && (
+                <button
+                    className="searchBackdrop"
+                    type="button"
+                    aria-label="Đóng tìm kiếm"
+                    onClick={() => setSearchOpen(false)}
+                />)}
 
             {searchOpen && (
                 <div className="searchPanel" id="searchPanel" role="search">
