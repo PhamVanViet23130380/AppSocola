@@ -1,4 +1,3 @@
-
 import { Route, Routes } from "react-router";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home/Home";
@@ -10,6 +9,7 @@ import Address from "../pages/Profile/Address";
 import ProductDetail from "../pages/ProductDetail/ProductDetail";
 import Products from "../pages/Products/Products";
 import ChangePassword from "../pages/Profile/ChangePassword";
+import Checkout from "../pages/Checkout/Checkout";
 
 function AppRoutes() {
     return (
@@ -24,6 +24,7 @@ function AppRoutes() {
                 <Route path="/profile/password" element={<ChangePassword />}/>
                 <Route path="/san-pham" element={<Products />} />
                 <Route path="/san-pham/:slug" element={<ProductDetail />}/>
+                <Route path="/order" element={<Checkout />} />
 
                 <Route
                     path="*"

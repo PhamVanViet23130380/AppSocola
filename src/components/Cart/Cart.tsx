@@ -122,7 +122,10 @@ function Cart({ onClose }: CartProps) {
                                 <span>Tạm tính</span>
                                 <strong>{subtotal.toLocaleString("vi-VN")} đ</strong>
                             </div>
-                            <Link className="cartContinue" to="/san-pham" onClick={onClose}>Tiếp tục mua sắm</Link>
+                            <div className="cartActions">
+                                <Link className="cartContinue" to="/san-pham" onClick={onClose}>Tiếp tục mua sắm</Link>
+                                <Link className="cartCheckout" to="/order" onClick={onClose}>Đặt hàng</Link>
+                            </div>
                         </div>
                     </>
                 )}
