@@ -10,6 +10,7 @@ import Address from "../pages/Profile/Address";
 import ProductDetail from "../pages/ProductDetail/ProductDetail";
 import Products from "../pages/Products/Products";
 import ChangePassword from "../pages/Profile/ChangePassword";
+import Login from "../pages/Login/Login";
 
 function AppRoutes() {
     return (
@@ -24,6 +25,7 @@ function AppRoutes() {
                 <Route path="/profile/password" element={<ChangePassword />}/>
                 <Route path="/san-pham" element={<Products />} />
                 <Route path="/san-pham/:slug" element={<ProductDetail />}/>
+                <Route path="/login" element={<Login />} />
 
                 <Route
                     path="*"
