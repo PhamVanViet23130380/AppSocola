@@ -11,6 +11,7 @@ import ProductDetail from "../pages/ProductDetail/ProductDetail";
 import Products from "../pages/Products/Products";
 import ChangePassword from "../pages/Profile/ChangePassword";
 import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
 
 function AppRoutes() {
     return (
@@ -26,6 +27,7 @@ function AppRoutes() {
                 <Route path="/san-pham" element={<Products />} />
                 <Route path="/san-pham/:slug" element={<ProductDetail />}/>
                 <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
 
                 <Route
                     path="*"
