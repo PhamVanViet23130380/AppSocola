@@ -17,6 +17,10 @@ function NewsDetail() {
         );
     }
 
+    const relatedNews = news
+        .filter((item) => item.category === article.category && item.id !== article.id)
+        .slice(0, 2);
+
     return (
         <main className="news-detail-page">
             <div className="news-detail-container">
@@ -44,6 +48,23 @@ function NewsDetail() {
                     </div>
                     <Link className="news-detail-back" to="/tin-tuc">← Quay lại Tin tức</Link>
                 </article>
+
+                {relatedNews.length > 0 && (
+                    <section className="news-related">
+                        <h2>Bài viết liên quan</h2>
+                        <div className="news-related-list">
+                            {relatedNews.map((item) => (
+                                <Link key={item.id} to={`/tin-tuc/${item.slug}`} className="news-related-card">
+                                    <img src={item.image} alt={item.title} />
+                                    <div>
+                                        <span>{getNewsCategoryName(item.category)}</span>
+                                        <h3>{item.title}</h3>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </section>
+                )}
             </div>
         </main>
     );

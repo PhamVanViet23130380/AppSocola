@@ -99,7 +99,7 @@ function Header() {
                     Sô cô la quà tặng <span className="arrowMenu" aria-hidden="true"></span>
                 </a>
                 <a href="/#valentine">Quà tặng Valentine</a>
-                <a href="/#news">Tin tức</a>
+                <Link to="/tin-tuc">Tin tức</Link>
             </nav>
 
             <div className="iconsHeader">

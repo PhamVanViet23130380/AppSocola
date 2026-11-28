@@ -1,8 +1,14 @@
+import { useState } from "react";
 import { Link } from "react-router";
-import { news, getNewsCategoryName } from "../../data/news";
+import { news, newsCategories, getNewsCategoryName } from "../../data/news";
 import "./News.css";
 
 function News() {
+    const [category, setCategory] = useState("all");
+    const filteredNews = category === "all"
+        ? news
+        : news.filter((article) => article.category === category);
+
     return (
         <main className="news-page">
             <div className="news-container">
@@ -18,8 +24,23 @@ function News() {
                     <span>Cùng tìm hiểu về socola, cách thưởng thức và những gợi ý quà tặng.</span>
                 </div>
 
+                <div className="news-categories">
+                    {newsCategories.map((item) => (
+                        <button
+                            key={item.id}
+                            type="button"
+                            className={category === item.id ? "news-category active" : "news-category"}
+                            onClick={() => setCategory(item.id)}
+                        >
+                            {item.name}
+                        </button>
+                    ))}
+                </div>
+
+                <p className="news-count">Có {filteredNews.length} bài viết</p>
+
                 <div className="news-grid">
-                    {news.map((article) => (
+                    {filteredNews.map((article) => (
                         <article className="news-card" key={article.id}>
                             <Link to={`/tin-tuc/${article.slug}`} className="news-card-image">
                                 <img src={article.image} alt={article.title} />
