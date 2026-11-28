@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import { Link } from "react-router"
 import { products } from "../../data/products"
 import "../Profile/Address.css"
 import "./Checkout.css"
@@ -140,7 +141,9 @@ function Checkout() {
                         </div>
                     </div>
 
-                    <button className="checkoutButton" type="button" disabled>XÁC NHẬN THANH TOÁN</button>
+                    <Link className="checkoutButton" to="/order/success">
+                        XÁC NHẬN THANH TOÁN
+                    </Link>
                 </aside>
             </div>
 

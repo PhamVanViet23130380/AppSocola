@@ -1,0 +1,143 @@
+.orderSuccessPage {
+    min-height: 55vh;
+    background-color: #ffffff;
+    color: #171717;
+}
+
+.orderSuccessLayout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 32px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 40px 24px 56px;
+}
+
+.orderSuccessDetails {
+    flex: 2 1 500px;
+    min-width: 0;
+}
+
+.orderSuccessHeading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.orderSuccessIcon {
+    color: #27844f;
+    font-size: 26px;
+}
+
+.orderSuccessHeading h1 {
+    margin: 0;
+    color: #171717;
+    font-size: 26px;
+}
+
+.orderSuccessCode {
+    margin: 6px 0 20px;
+    color: #616161;
+}
+
+.orderSuccessAddress {
+    margin-bottom: 22px;
+    padding: 14px 16px;
+    border-radius: 6px;
+    background-color: #f4f4f4;
+}
+
+.orderSuccessAddress p {
+    margin: 0 0 4px;
+}
+
+.orderSuccessDetails h2 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.orderSuccessDelivery {
+    margin: 0 0 22px;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.orderSuccessRecipient p {
+    margin: 0 0 6px;
+}
+
+.orderSuccessLink {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    background-color: #4b2e23;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.orderSuccessLink:hover {
+    background-color: #6b4330;
+}
+
+.orderSuccessSummary {
+    flex: 1 1 340px;
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+}
+
+.orderSuccessSummary h2 {
+    margin: 0 0 16px;
+    font-size: 20px;
+}
+
+.orderSuccessProduct {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.orderSuccessProduct img {
+    width: 56px;
+    height: 56px;
+    border-radius: 5px;
+    object-fit: contain;
+    background-color: #f4f4f4;
+}
+
+.orderSuccessProduct p {
+    margin: 5px 0 0;
+    color: #616161;
+    font-size: 14px;
+}
+
+.orderSuccessPrice {
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.orderSuccessPrices {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.orderSuccessAmount {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.orderSuccessTotal {
+    margin-top: 14px;
+    margin-bottom: 0;
+    padding-top: 14px;
+    border-top: 1px solid #cccccc;
+    font-size: 18px;
+}
