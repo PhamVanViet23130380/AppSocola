@@ -1,12 +1,32 @@
-import { useEffect } from "react"
+import { useEffect, useRef, useState } from "react"
 import { products } from "../../data/products"
+import "../Profile/Address.css"
 import "./Checkout.css"
+
+const sampleAddresses = [
+    {
+        id: 1,
+        name: "Nguyễn Văn A",
+        phone: "0901234567",
+        address: "123 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh"
+    },
+    {
+        id: 2,
+        name: "Nguyễn Văn A",
+        phone: "0901234567",
+        address: "25 Đường số 7, Bình Chánh, TP. Hồ Chí Minh"
+    }
+]
 
 function formatPrice(price: number) {
     return price.toLocaleString("vi-VN") + " đ"
 }
 
 function Checkout() {
+    const [selectedAddress, setSelectedAddress] = useState(sampleAddresses[0])
+    const [showAddresses, setShowAddresses] = useState(false)
+    const addressDialog = useRef<HTMLDialogElement>(null)
+
     const product = products.find((item) => item.slug === "socola-hanh-nhan")
     const productTotal = product ? product.price : 0
     const shippingFee = product ? 30000 : 0
@@ -26,10 +46,33 @@ function Checkout() {
                     </div>
 
                     <div className="checkoutBox">
-                        <h2>Vận chuyển đến</h2>
-                        <strong>Nguyễn Văn A · 0901234567</strong>
-                        <p className="checkoutNote">123 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</p>
-                        <input className="checkoutInput" type="text" placeholder="Nhập ghi chú (nếu có)" aria-label="Ghi chú giao hàng"/>
+                        <button className="checkoutAddressToggle" type="button" onClick={() => setShowAddresses(!showAddresses)} aria-expanded={showAddresses}>
+                            Vận chuyển đến
+                            <i className={showAddresses ? "fa-solid fa-chevron-up" : "fa-solid fa-chevron-down"} aria-hidden="true"></i>
+                        </button>
+
+                        {showAddresses ? (
+                            <div className="checkoutAddressList">
+                                {sampleAddresses.map((item) => (
+                                    <label className={selectedAddress.id === item.id ? "checkoutAddressOption checkoutAddressSelected" : "checkoutAddressOption"} key={item.id}>
+                                        <input type="radio" name="deliveryAddress" checked={selectedAddress.id === item.id} onChange={() => setSelectedAddress(item)}/>
+                                        <span>
+                                            <strong>{item.name} · {item.phone}</strong>
+                                            <span className="checkoutAddressText">{item.address}</span>
+                                            {item.id === sampleAddresses[0].id && <span className="checkoutAddressDefault">Mặc định</span>}
+                                        </span>
+                                    </label>
+                                ))}
+
+                                <button className="checkoutAddAddress" type="button" onClick={() => addressDialog.current?.showModal()}>
+                                    <i className="fa-solid fa-plus" aria-hidden="true"></i>
+                                    Sử dụng địa chỉ khác
+                                </button>
+                            </div>
+                        ) : (<div><strong>{selectedAddress.name} · {selectedAddress.phone}</strong><p className="checkoutNote">{selectedAddress.address}</p></div>
+                        )}
+
+                        <input className="checkoutInput" type="text" placeholder="Nhập ghi chú (nếu có)" aria-label="Ghi chú giao hàng" />
                     </div>
 
                     <div className="checkoutBox">
@@ -100,6 +143,61 @@ function Checkout() {
                     <button className="checkoutButton" type="button" disabled>XÁC NHẬN THANH TOÁN</button>
                 </aside>
             </div>
+
+            <dialog className="addressFormPanel checkoutAddressDialog" ref={addressDialog} aria-labelledby="checkoutAddressTitle">
+                <div className="addressFormHeader">
+                    <h2 id="checkoutAddressTitle">Thêm địa chỉ mới</h2>
+                    <button type="button" aria-label="Đóng" onClick={() => addressDialog.current?.close()}>
+                        <i className="fa-solid fa-xmark" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div className="addressFormContent">
+                    <label className="addressFormField">Họ và tên người nhận <span>*</span><input type="text" />
+                    </label>
+                    <label className="addressFormField">Số điện thoại <span>*</span><input type="tel" />
+                    </label>
+                    <label className="addressFormField">Tỉnh / Thành phố <span>*</span>
+                        <select>
+                            <option value="">-- Chọn Tỉnh / Thành phố --</option>
+                            <option value="hanoi">Hà Nội</option>
+                            <option value="hochiminh">TP. Hồ Chí Minh</option>
+                            <option value="danang">Đà Nẵng</option>
+                        </select>
+                    </label>
+                    <label className="addressFormField">Quận / Huyện <span>*</span>
+                        <select>
+                            <option value="">-- Chọn Quận / Huyện --</option>
+                            <option value="quan-1">Quận 1</option>
+                            <option value="quan-3">Quận 3</option>
+                            <option value="binh-thanh">Bình Thạnh</option>
+                            <option value="binh-chanh">Bình Chánh</option>
+                            <option value="dong-da">Đống Đa</option>
+                        </select>
+                    </label>
+                    <label className="addressFormField">Phường / Xã <span>*</span>
+                        <select>
+                            <option value="">-- Chọn Phường / Xã --</option>
+                            <option value="ben-nghe">Bến Nghé</option>
+                            <option value="ben-thanh">Bến Thành</option>
+                            <option value="thao-dien">Thảo Điền</option>
+                            <option value="linh-trung">Linh Trung</option>
+                            <option value="binh-chanh">Bình Chánh</option>
+                            <option value="lang-ha">Láng Hạ</option>
+                        </select>
+                    </label>
+                    <label className="addressFormField">Địa chỉ chi tiết <span>*</span><textarea />
+                    </label>
+                    <label className="addressDefaultCheck">
+                        <input type="checkbox" />Đặt làm địa chỉ mặc định
+                    </label>
+                </div>
+
+                <div className="addressFormFooter">
+                    <button className="addressCancelButton" type="button" onClick={() => addressDialog.current?.close()}>Hủy</button>
+                    <button className="addressSaveButton" type="button" disabled>Lưu địa chỉ</button>
+                </div>
+            </dialog>
         </main>
     )
 }
