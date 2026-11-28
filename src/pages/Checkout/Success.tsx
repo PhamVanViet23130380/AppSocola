@@ -24,7 +24,10 @@ function OrderSuccess() {
                         <i className="fa-solid fa-circle-check orderSuccessIcon" aria-hidden="true"></i>
                         <h1>Cảm ơn {recipientName}!</h1>
                     </div>
-                    <p className="orderSuccessCode">Mã xác nhận mẫu <strong>#10</strong></p>
+                    <div className="orderSuccessCodeRow">
+                        <p className="orderSuccessCode">Mã xác nhận mẫu <strong>#10</strong></p>
+                        <button className="orderSuccessCopy" type="button">Sao chép</button>
+                    </div>
 
                     <div className="orderSuccessAddress">
                         <p>Địa chỉ nhận hàng</p>

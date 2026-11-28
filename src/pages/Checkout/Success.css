@@ -36,9 +36,27 @@
     font-size: 26px;
 }
 
-.orderSuccessCode {
+.orderSuccessCodeRow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
     margin: 6px 0 20px;
+}
+
+.orderSuccessCode {
+    margin: 0;
     color: #616161;
+}
+
+.orderSuccessCopy {
+    margin-left: auto;
+    padding: 5px 10px;
+    border: 1px solid #d9c9bb;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #4b2e23;
+    font-size: 14px;
 }
 
 .orderSuccessAddress {
