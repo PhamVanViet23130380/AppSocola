@@ -1,0 +1,42 @@
+import { Link } from "react-router";
+import { news, getNewsCategoryName } from "../../data/news";
+import "./News.css";
+
+function News() {
+    return (
+        <main className="news-page">
+            <div className="news-container">
+                <nav className="news-breadcrumb" aria-label="Đường dẫn trang">
+                    <Link to="/">Trang chủ</Link>
+                    <span>/</span>
+                    <span>Tin tức</span>
+                </nav>
+
+                <div className="news-heading">
+                    <p>GÓC CHOCOLUXE</p>
+                    <h1>Tin tức và câu chuyện socola</h1>
+                    <span>Cùng tìm hiểu về socola, cách thưởng thức và những gợi ý quà tặng.</span>
+                </div>
+
+                <div className="news-grid">
+                    {news.map((article) => (
+                        <article className="news-card" key={article.id}>
+                            <div className="news-card-image">
+                                <img src={article.image} alt={article.title} />
+                            </div>
+                            <div className="news-card-body">
+                                <p className="news-card-meta">
+                                    {getNewsCategoryName(article.category)} · {article.date}
+                                </p>
+                                <h2>{article.title}</h2>
+                                <p className="news-card-summary">{article.summary}</p>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </div>
+        </main>
+    );
+}
+
+export default News;
