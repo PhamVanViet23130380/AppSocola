@@ -1,0 +1,311 @@
+.checkoutPage {
+    background-color: #f4f4f4;
+    color: #171717;
+}
+
+.checkoutLayout {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 32px 20px 48px;
+}
+
+.checkoutDelivery {
+    flex: 2;
+    padding: 24px;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    background-color: #ffffff;
+    min-width: 0;
+}
+
+.checkoutOrder {
+    flex: 1;
+    padding: 24px;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    background-color: #ffffff;
+    min-width: 0;
+}
+
+.checkoutDelivery h1 {
+    margin: 0 0 14px;
+    color: inherit;
+    font-size: 22px;
+}
+
+.checkoutOrder h2 {
+    margin: 0 0 14px;
+    color: inherit;
+    font-size: 22px;
+}
+
+.checkoutBox {
+    min-width: 0;
+    margin: 0 0 16px;
+    padding: 16px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+}
+
+.checkoutBox h2 {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+.checkoutBox h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+.checkoutAccount {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.checkoutAvatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: #ececec;
+    font-weight: bold;
+}
+
+.checkoutNote {
+    margin: 5px 0 0;
+    color: #616161;
+    font-size: 14px;
+}
+
+.checkoutInput {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    color: #171717;
+    font: inherit;
+}
+
+.checkoutAddressToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 0;
+    border: 0;
+    background-color: #ffffff;
+    color: #171717;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.checkoutAddressList {
+    padding-top: 10px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.checkoutAddressOption {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 6px;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkoutAddressOption input {
+    margin: 3px 0 0;
+    accent-color: #246fff;
+}
+
+.checkoutAddressSelected {
+    background-color: #f1f5ff;
+}
+
+.checkoutAddressText {
+    display: block;
+    margin-top: 4px;
+    color: #616161;
+}
+
+.checkoutAddressDefault {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background-color: #666666;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.checkoutAddAddress {
+    padding: 8px 12px;
+    border: 0;
+    background-color: #ffffff;
+    color: #1558b5;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.checkoutAddAddress i {
+    margin-right: 8px;
+}
+
+.checkoutAddressDialog {
+    left: auto;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: #f0f0f0;
+    box-shadow: -4px 0 14px #00000026;
+}
+
+.checkoutAddressDialog::backdrop {
+    background-color: #00000066;
+}
+
+.checkoutAddressDialog .addressFormHeader {
+    background-color: #f0f0f0;
+}
+
+.checkoutAddressDialog .addressFormHeader button {
+    background-color: transparent;
+}
+
+.checkoutAddressDialog .addressFormFooter {
+    background-color: #f0f0f0;
+}
+
+.checkoutAddressDialog .addressFormField input {
+    background-color: #f8f8f8;
+}
+
+.checkoutAddressDialog .addressFormField select {
+    background-color: #f8f8f8;
+}
+
+.checkoutAddressDialog .addressFormField textarea {
+    background-color: #f8f8f8;
+}
+
+.checkoutShipping {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid #357bff;
+    border-radius: 5px;
+    background-color: #eaf2ff;
+}
+
+.checkoutPayment {
+    margin-bottom: 0;
+}
+
+.checkoutPayment legend {
+    padding: 0 5px;
+    font-weight: bold;
+}
+
+.checkoutPayment label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+}
+
+.checkoutPayment label + label {
+    margin-top: 8px;
+}
+
+.checkoutPayment label:has(input:checked) {
+    border-color: #357bff;
+    background-color: #f4f8ff;
+}
+
+.checkoutPayment input {
+    margin: 0;
+    accent-color: #246fff;
+}
+
+.checkoutProduct {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 14px 0 6px;
+}
+
+.checkoutProduct img {
+    width: 54px;
+    height: 54px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    object-fit: contain;
+    background-color: #f4f4f4;
+}
+
+.checkoutPrice {
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.checkoutDiscount {
+    margin-bottom: 16px;
+}
+
+.checkoutButton {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #dc3044;
+    color: #ffffff;
+    font: inherit;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+.checkoutApply {
+    margin-top: 10px;
+    background-color: #bd4d24;
+}
+
+.checkoutTotals {
+    border-color: #f4d5c2;
+    background-color: #fff8f3;
+}
+
+.checkoutAmount {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkoutTotal {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #ebcdbc;
+}
+
+.checkoutTotal .checkoutPrice {
+    color: #d6283c;
+}

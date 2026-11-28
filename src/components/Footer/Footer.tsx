@@ -1,8 +1,13 @@
+import { useMatch } from "react-router"
 import "./Footer.css"
 
 function Footer() {
+    const isOrderPage = useMatch("/order") !== null
+    const isSuccessPage = useMatch("/order/success") !== null
+    const footerClass = (isOrderPage || isSuccessPage) ? "footer footerOrder" : "footer"
+
     return (
-        <footer className="footer" id="contact">
+        <footer className={footerClass} id="contact">
             <div className="footerContent">
                 <div className="footerColumn footerBrand">
                     <h2>CHOCOLUXE</h2>

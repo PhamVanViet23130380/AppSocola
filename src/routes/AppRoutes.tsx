@@ -1,4 +1,3 @@
-
 import { Route, Routes } from "react-router";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home/Home";
@@ -12,6 +11,8 @@ import Products from "../pages/Products/Products";
 import ChangePassword from "../pages/Profile/ChangePassword";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import Checkout from "../pages/Checkout/Checkout";
+import OrderSuccess from "../pages/Checkout/Success";
 
 function AppRoutes() {
     return (
@@ -28,6 +29,8 @@ function AppRoutes() {
                 <Route path="/san-pham/:slug" element={<ProductDetail />}/>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/order" element={<Checkout />} />
+                <Route path="/order/success" element={<OrderSuccess />} />
 
                 <Route
                     path="*"
