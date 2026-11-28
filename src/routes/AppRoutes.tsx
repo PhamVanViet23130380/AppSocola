@@ -13,6 +13,8 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Checkout from "../pages/Checkout/Checkout";
 import OrderSuccess from "../pages/Checkout/Success";
+import News from "../pages/News/News";
+import NewsDetail from "../pages/NewsDetail/NewsDetail";
 
 function AppRoutes() {
     return (
@@ -26,6 +28,8 @@ function AppRoutes() {
                 <Route path="/profile/address" element={<Address/>}/>
                 <Route path="/profile/password" element={<ChangePassword />}/>
                 <Route path="/san-pham" element={<Products />} />
+                <Route path="/tin-tuc" element={<News />} />
+                <Route path="/tin-tuc/:slug" element={<NewsDetail />} />
                 <Route path="/san-pham/:slug" element={<ProductDetail />}/>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
