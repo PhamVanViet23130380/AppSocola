@@ -95,6 +95,112 @@
     font: inherit;
 }
 
+.checkoutAddressToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 0;
+    border: 0;
+    background-color: #ffffff;
+    color: #171717;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.checkoutAddressList {
+    padding-top: 10px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.checkoutAddressOption {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 6px;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkoutAddressOption input {
+    margin: 3px 0 0;
+    accent-color: #246fff;
+}
+
+.checkoutAddressSelected {
+    background-color: #f1f5ff;
+}
+
+.checkoutAddressText {
+    display: block;
+    margin-top: 4px;
+    color: #616161;
+}
+
+.checkoutAddressDefault {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background-color: #666666;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.checkoutAddAddress {
+    padding: 8px 12px;
+    border: 0;
+    background-color: #ffffff;
+    color: #1558b5;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.checkoutAddAddress i {
+    margin-right: 8px;
+}
+
+.checkoutAddressDialog {
+    left: auto;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: #f0f0f0;
+    box-shadow: -4px 0 14px #00000026;
+}
+
+.checkoutAddressDialog::backdrop {
+    background-color: #00000066;
+}
+
+.checkoutAddressDialog .addressFormHeader {
+    background-color: #f0f0f0;
+}
+
+.checkoutAddressDialog .addressFormHeader button {
+    background-color: transparent;
+}
+
+.checkoutAddressDialog .addressFormFooter {
+    background-color: #f0f0f0;
+}
+
+.checkoutAddressDialog .addressFormField input {
+    background-color: #f8f8f8;
+}
+
+.checkoutAddressDialog .addressFormField select {
+    background-color: #f8f8f8;
+}
+
+.checkoutAddressDialog .addressFormField textarea {
+    background-color: #f8f8f8;
+}
+
 .checkoutShipping {
     display: flex;
     align-items: center;
