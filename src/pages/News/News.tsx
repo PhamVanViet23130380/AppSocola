@@ -21,15 +21,20 @@ function News() {
                 <div className="news-grid">
                     {news.map((article) => (
                         <article className="news-card" key={article.id}>
-                            <div className="news-card-image">
+                            <Link to={`/tin-tuc/${article.slug}`} className="news-card-image">
                                 <img src={article.image} alt={article.title} />
-                            </div>
+                            </Link>
                             <div className="news-card-body">
                                 <p className="news-card-meta">
                                     {getNewsCategoryName(article.category)} · {article.date}
                                 </p>
-                                <h2>{article.title}</h2>
+                                <h2>
+                                    <Link to={`/tin-tuc/${article.slug}`}>{article.title}</Link>
+                                </h2>
                                 <p className="news-card-summary">{article.summary}</p>
+                                <Link className="news-card-link" to={`/tin-tuc/${article.slug}`}>
+                                    Đọc bài viết →
+                                </Link>
                             </div>
                         </article>
                     ))}
