@@ -3,7 +3,8 @@ import "./Footer.css"
 
 function Footer() {
     const isOrderPage = useMatch("/order") !== null
-    const footerClass = isOrderPage ? "footer footerOrder" : "footer"
+    const isSuccessPage = useMatch("/order/success") !== null
+    const footerClass = (isOrderPage || isSuccessPage) ? "footer footerOrder" : "footer"
 
     return (
         <footer className={footerClass} id="contact">

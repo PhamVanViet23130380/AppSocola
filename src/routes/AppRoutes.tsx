@@ -10,6 +10,7 @@ import ProductDetail from "../pages/ProductDetail/ProductDetail";
 import Products from "../pages/Products/Products";
 import ChangePassword from "../pages/Profile/ChangePassword";
 import Checkout from "../pages/Checkout/Checkout";
+import OrderSuccess from "../pages/Checkout/Success";
 
 function AppRoutes() {
     return (
@@ -25,6 +26,7 @@ function AppRoutes() {
                 <Route path="/san-pham" element={<Products />} />
                 <Route path="/san-pham/:slug" element={<ProductDetail />}/>
                 <Route path="/order" element={<Checkout />} />
+                <Route path="/order/success" element={<OrderSuccess />} />
 
                 <Route
                     path="*"
